@@ -40,7 +40,6 @@
 }
 
 .header {
-    
     width: 100%;
     background-color: #1b1802;
     color: #fff;
@@ -48,12 +47,11 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 1;
     display: flex;
-    justify-content: space-between ;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    position: relative;
+    padding: 10px 20px;
+    position: static;
     padding-bottom: 10px;
-  
 }
 
 .header a {
@@ -63,7 +61,21 @@
     font-size: 1.2rem;
     transition: 0.5s;
     align-items: center;
+    display: flex;
 }
+
 .header a:hover {
     color: rgb(188, 34, 34);
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    
+}
+
+.menu-list li {
+    margin-right: 20px;
 }
