@@ -1,0 +1,44 @@
+.body{
+    background-color: black;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+
+
+  .lista {
+    font-weight: bold;
+    color: #336699;
+    list-style: none;
+    padding: 0;
+  }
+ .descripcion{
+    color:rgb(188, 34, 34);
+  }
+  
+  .lista ul:hover{
+    background-color: #2cf5d6;
+    transition: 0.5s;
+    cursor:pointer;
+    
+
+  }
+
+  .titulo{
+    color:rgb(188, 34, 34);
+    text-align: center;
+    
+  }
+  .lista .titulo-descripcion{
+    color:rgb(188, 34, 34);
+
+
+  }
