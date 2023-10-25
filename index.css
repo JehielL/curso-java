@@ -4,20 +4,30 @@
     animation: animatedBackground 5s infinite alternate;
 }
 
-.container-info {
-    width: 40%;
-    margin: 0 auto;
-    padding: 20px;
+.container-info, .container-info2 {
+    flex:1;
+    width: 10%;
+    padding: 10px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 20px;
     font-family: Arial, sans-serif;
     margin-top: 100px;
     z-index: 1000;
-    
+    margin: 10px;
+    margin-top: 100px;
+    transition: box-shadow 0.3s;
+    height: 10%;
 }
 
-.lista {
+.container-info:hover, .container-info2:hover {
+    box-shadow: 5px 5px 10px rgba(188, 34,34); 
+}
+.container-wrapper {
+    display: flex;
+    justify-content: space-between; 
+}
+.lista1 {
     font-weight: bold;
     color: #336699;
     list-style: none;
@@ -28,7 +38,7 @@
     color: rgb(188, 34, 34);
 }
 
-.lista ul:hover {
+.lista1 ul:hover {
     background-color: #7f8281;
     transition: 0.5s;
     cursor: pointer;
@@ -39,8 +49,9 @@
     text-align: center;
 }
 
-.lista .titulo-descripcion {
+.lista1 .titulo-descripcion {
     color: rgb(188, 34, 34);
+    text-decoration: underline;
 }
 
 .header {
@@ -59,8 +70,7 @@
     align-items: center;
     padding: 10px 20px;
     border-radius: 30px;
-      padding-bottom: 10px;
-
+    padding-bottom: 10px;
 }
 
 .header a {
@@ -90,6 +100,21 @@
     margin-right: 20px;
 }
 
+.cronometro {
+    font-size: 16px; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    color: #333; 
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    padding: 5px 10px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-right: 100px;
+}
+
+
 @keyframes animatedBackground {
     0% {
       background-color: #000000;
@@ -100,5 +125,4 @@
     100% {
       background-color: #c2bdbd;
     }
-
 }

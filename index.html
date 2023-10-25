@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-
     <title>Practicas</title>
 </head>
 <body class="body">
@@ -13,68 +12,97 @@
         <div class="container-nav">
             <nav class="icono-nav">
                 <ul class="menu-list">
-                    <li> <a href="#container-info">Inicio</a></li>
-                    <li> <a href="https://formacion.fundacionadecco.org/">Cursos</a></li>
-                    <li> <a href="">Tareas Pendientes</a></li>
-                    <li> <a href="">Actividades Diarias</a></li>
+                    <li><a href="#container-info">Inicio</a></li>
+                    <li><a href="https://formacion.fundacionadecco.org/">Cursos</a></li>
+                    <li><a href="">Tareas Pendientes</a></li>
+                    <li><a href="">Actividades Diarias</a></li>
                 </ul>
+                
             </nav>
+            
+            
+            
         </div>
+        <div id="cronometro" class="cronometro"></div>
     </section>
-    <section>
+    <section class="container-wrapper">
         <div class="container-info">
             <h1 class="titulo">CURSO JAVA</h1>
             <h2>PRACTICA GIT COMMITS</h2>
             <h4>Prueba de clonar repositorios, hacer push y realizar cambios.</h4>
-            <li class="lista">
-                <h4 class="titulo-descripcion">Pasos Para clonar</h4>
-                <ul>Abrir Visual Studio Code</ul>
-                <ul>Control + shift + p</ul>
-                <ul>Buscar Clone</ul>
-                <ul>Copiar Url Control + V</ul>
-                <ul>Seleccionar Carpeta Donde deseas descargar el repositorio</ul>
-                <h4 class="titulo-descripcion">Pasos Subir Commits</h4>
-                <ul>Abrir Source Control</ul>
-                <ul>Hacer click en el símbolo + al lado de los archivos que quieres subir</ul>
-                <ul>Click en "Commit"</ul>
-                <h4 class="titulo-descripcion">Editar Código Desde Github</h4>
-                <ul>Entrar Al repositorio</ul>
-                <ul>Entrar al archivo que deseamos editar</ul>
-                <ul>Realizar cambios necesarios</ul>
-                <ul>Click Commit Change Botón Verde</ul>
-                <h4 class="titulo-descripcion">Resolución de problemas en Github</h4>
-                <ul>Resolución de problemas en la misma línea de código</ul>
-                <ul>Resolución de problema varios archivos</ul>
+            <div class="lista1">
+                <li class="lista">
+                    <h4 class="titulo-descripcion">Pasos Para clonar</h4>
+                    <ul>Abrir Visual Studio Code</ul>
+                    <ul>Control + shift + p</ul>
+                    <ul>Buscar Clone</ul>
+                    <ul>Copiar Url Control + V</ul>
+                    <ul>Seleccionar Carpeta Donde deseas descargar el repositorio</ul>
+                    <h4 class="titulo-descripcion">Pasos Subir Commits</h4>
+                    <ul>Abrir Source Control</ul>
+                    <ul>Hacer click en el símbolo + al lado de los archivos que quieres subir</ul>
+                    <ul>Click en "Commit"</ul>
+                    <h4 class="titulo-descripcion">Editar Código Desde Github</h4>
+                    <ul>Entrar Al repositorio</ul>
+                    <ul>Entrar al archivo que deseamos editar</ul>
+                    <ul>Realizar cambios necesarios</ul>
+                    <ul>Click Commit Change Botón Verde</ul>
+                    <h4 class ="titulo-descripcion">Resolución de problemas en Github</h4>
+                    <ul>Resolución de problemas en la misma línea de código</ul>
+                    <ul>Resolución de problema varios archivos</ul>
+                </li>
+            </div>
+        </div>
+
+        <div class="container-info2">
+            <h1 class="titulo">CURSO JAVA</h1>
+            <h2>PRACTICA GIT COMMITS</h2>
+            <h4>Pendientes para siguiente clase.</h4>
+            <li class="lista1">
+                <h4 class="titulo-descripcion">Github Desktop:</h4>
+                <ul> <a href="https://desktop.github.com/">Descargar Github Desktop</a></ul>
+                <ul>Copiar repositorios de clases</ul>
+                <ul>Probar usos</ul>
+                <h4 class="titulo-descripcion">Ramas / Branchs:</h4>
+                <ul>Estudiar uso de ramas en GitHub</ul>
+                <h4 class="titulo-descripcion">.Gitignore:</h4>
+                <ul>Estudiar Gitignore</ul>
+                <h4 class="titulo-descripcion">Autoevaluacion:</h4>
+                <ul>Realizar Test-autoevaluación plataforma Adecco</ul>
             </li>
         </div>
     </section>
 
-    <section>
-        <div class="container-info">
-            <h1 class="titulo">CURSO JAVA</h1>
-            <h2>PRACTICA GIT COMMITS</h2>
-            <h4>Prueba de clonar repositorios, hacer push y realizar cambios.</h4>
-            <li class="lista">
-                <h4 class="titulo-descripcion">Pasos Para clonar</h4>
-                <ul>Abrir Visual Studio Code</ul>
-                <ul>Control + shift + p</ul>
-                <ul>Buscar Clone</ul>
-                <ul>Copiar Url Control + V</ul>
-                <ul>Seleccionar Carpeta Donde deseas descargar el repositorio</ul>
-                <h4 class="titulo-descripcion">Pasos Subir Commits</h4>
-                <ul>Abrir Source Control</ul>
-                <ul>Hacer click en el símbolo + al lado de los archivos que quieres subir</ul>
-                <ul>Click en "Commit"</ul>
-                <h4 class="titulo-descripcion">Editar Código Desde Github</h4>
-                <ul>Entrar Al repositorio</ul>
-                <ul>Entrar al archivo que deseamos editar</ul>
-                <ul>Realizar cambios necesarios</ul>
-                <ul>Click Commit Change Botón Verde</ul>
-                <h4 class="titulo-descripcion">Resolución de problemas en Github</h4>
-                <ul>Resolución de problemas en la misma línea de código</ul>
-                <ul>Resolución de problema varios archivos</ul>
-            </li>
-        </div>
-    </section>
+    <script>
+      // Fecha objetivo: 30 de mayo de este año
+      const fechaObjetivo = new Date(2024 , 4, 30);
+
+      // Función para actualizar el cronómetro
+      function actualizarCronometro() {
+        const ahora = new Date();
+        const diferencia = fechaObjetivo - ahora;
+
+        // Calcula los días, horas, minutos y segundos restantes
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        // Muestra el cronómetro en un elemento HTML
+        document.getElementById("cronometro").innerHTML =
+          dias + "d " + horas + "h " + minutos + "m " + segundos + "s";
+
+        // Verifica si la fecha objetivo ha pasado
+        if (diferencia <= 0) {
+          document.getElementById("cronometro").innerHTML = "¡Tiempo cumplido!";
+        }
+      }
+
+      // Actualiza el cronómetro cada segundo
+      setInterval(actualizarCronometro, 1000);
+
+      // Llama a la función para asegurarse de que el cronómetro se actualice de inmediato
+      actualizarCronometro();
+    </script>
 </body>
 </html>
