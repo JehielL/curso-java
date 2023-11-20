@@ -69,3 +69,17 @@ input {
     text-align: center;
 }
 
+.selectForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;
+    align-items: center;
+
+    
+
+}
+
+.buttonPassword{
+    margin-bottom: 10px;
+    
+}

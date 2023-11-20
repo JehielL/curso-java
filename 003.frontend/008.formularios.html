@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=ç, initial-scale=1.0">
     <link rel="stylesheet" href="css/008.formularios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Document</title>
 </head>
 <body>
@@ -90,23 +92,53 @@
                 <label for="courseDateTime">Fecha comienzo de curso</label>
                 <input type="datetime-local" name="courseDateTime" id="courseDateTime">
             </div>
-           
-            
-    
-    
-    
+            <div class="selectForm" >
+                <select name="company" id="company">
+                    <option value="0">Selecciona una compañia</option>
+                    <option value="certidevs">certidevs</option>
+                    <option value="cosmicDevelopments">Cosmic Developments</option>
+                    <option value="techChef">Tech Chef</option>
+                    <option value="geekyStore">Geeky Store</option>
+                </select>
+            </div>
+
+            <div class="selectForm">
+                <label for="knowledge">Lenguajes de programación conocidos:</label>
+                <select name="knowledge" id="knowledge" multiple>
+                    <option value="" disabled selected>Seleccionar Lenguaje</option>
+                    <option value="java">Java</option>
+                    <option value="java">Html</option>
+                    <option value="java">Javascript</option>
+                    <option value="java">React</option>
+                    <option value="java">Angular</option>
+                </select>
+            </div>
+                <br>
+                <div>
+                    <label for="pass">Contraseña</label>
+                
+                    <div class="buttonPassword">
+                        <button type="button" onclick="showPassword()">
+                            <i class="fa-solid fa-magnifying-glass"></i> 
+                        </button>
+                    </div>
+                    <input type="password" name="pass" id="pass">
+                </div>
+           <br>
             <div class="formButtom">
                 <button type="submit">Enviar</button>
             </div>
         
-            </div>
+             </div>
+
+          
 
 
-        
-
+             
 
 
 
     </form>
 </body>
+<script src="js/showPassword.js"></script>
 </html>
