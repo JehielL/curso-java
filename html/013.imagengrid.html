@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Bootstrap Demo</title>
+</head>
+
+
+<style>
+    .bg-welcome{
+        background-color:#a4133c;
+    }
+
+    .img-welcome{
+        background-image: url("https://img.freepik.com/free-photo/glowing-lines-human-heart-3d-shape-dark-background-generative-ai_191095-1435.jpg");
+        padding-top: 250px;
+        padding-bottom: 250px;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+
+<body class="bg-welcome">
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/html/013.imagengrid.html">Store</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+    </header>
+
+  <main>
+
+    <div class="img-welcome text-center">
+        <h1>Bienvenido Al Black Friday</h1>
+        <p>Las Mejores ofertas de Internet</p>
+
+    </div>
+        <div class="container mt-5"> 
+          
+            
+            <div class="row mt-5">
+        
+                <div class="col text-center">
+                    <h3>Moviles</h3>
+                    <p>Equipos celulares como iphone, huawei y demas.</p>
+        
+                    <div class="col ">
+
+                        <img src="https://marketing4ecommerce.net/wp-content/uploads/2018/02/Hay-m%C3%A1s-m%C3%B3viles-conectados-a-Internet-compressor.jpg" class="img-fluid rounded-5" alt="...">
+                        <p class="text-center mt-3">Iphone 15</p>
+    
+                    </div>
+
+                    <div class="mt-3 text-center">
+                        <button type="btnPrecio" class="btn btn-outline-primary">Ver precio</button>
+                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
+        
+                    </div>
+        
+                </div>
+                <div class="col  text-center">
+                    <h3>TV</h3>
+                    <p>Marcas como Lg, Samsung, Android TV.</p>
+        
+                    <div class="col">
+
+                        <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/03/smart-tv-1887483.jpg?tf=3840x" class="img-fluid rounded-5" alt="...">
+                        <p class="text-center mt-3">Lg SmartTv</p>
+    
+                    </div>
+
+                    <div class="text-center">
+                        <button id="btnPrecio" type="button" class="btn btn-outline-primary">Ver precio</button>
+                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
+        
+                    </div>
+        
+                </div>
+                <div class="col text-center">
+                    <h3>Ordenadores</h3>
+                    <p>Equipos celulares como Asus, Mac y demas.</p>
+        
+                      <div class="col ">
+
+                        <img src="https://www.laptops-spain.com/wp-content/uploads/2021/04/laptops-category-380x250.jpg" class="img-fluid rounded-5" alt="...">
+                        <p class="text-center mt-3">Macbook Pro</p>
+    
+                    </div>
+
+                    <div class=" text-center">
+                        <button  id="btnPrecio" type="button" class="btn btn-outline-primary">Ver precio</button>
+                        
+                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
+                       
+        
+                    </div>
+        
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+        
+                <div class="col mt-3">
+                    <h2>Listado de equipos</h2>
+                    <p>Practicando lenguajes de programación con sintaxis basicas para construir un programa.</p>
+        
+                    <div class="mt-3 text-center">
+                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        
+                    </div>
+        
+                </div>
+                
+                <div class="col mt-3">
+        
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Asus </li>
+                        <li class="list-group-item">Javascript</li>
+                        <li class="list-group-item">Python</li>
+                        <li class="list-group-item">SQL</li>
+                      </ol>
+                    
+        
+                </div>
+                
+            </div>
+        
+            <div class="row mt-5">
+        
+                <div class="col mt-3 mt-b 3">
+                    <h2>Frameworks</h2>
+                    <p>Practicando framkeworks de programación con sintaxis basicas para construir un programa.</p>
+        
+                    <div class="mt-3 text-center">
+                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        
+                    </div>
+        
+                </div>
+                
+                <div class="col mt-3">
+        
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Bootstrap</li>
+                        <li class="list-group-item">Angular</li>
+                        <li class="list-group-item">Spring</li>
+                      </ol>
+                    
+        
+                </div>
+                
+            </div>
+        </div>
+
+        
+
+        
+    </main>
+
+   
+
+
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</body>
+</html>
