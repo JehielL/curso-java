@@ -1,108 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <title>Practicas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Ecommerce Tech Chef</title>
 </head>
-<body class="body">
-    <section class="header">
-        <div class="container-nav">
-            <nav class="icono-nav">
-                <ul class="menu-list">
-                    <li><a href="#container-info">Inicio</a></li>
-                    <li><a href="https://formacion.fundacionadecco.org/">Cursos</a></li>
-                    <li><a href="">Tareas Pendientes</a></li>
-                    <li><a href="">Actividades Diarias</a></li>
-                </ul>
-                
-            </nav>
-            
-            
-            
-        </div>
-        <div id="cronometro" class="cronometro"></div>
-    </section>
-    <section class="container-wrapper">
-        <div class="container-info">
-            <h1 class="titulo">CURSO JAVA</h1>
-            <h2>PRACTICA GIT COMMITS</h2>
-            <h4>Prueba de clonar repositorios, hacer push y realizar cambios.</h4>
-            <div class="lista1">
-                <li class="lista">
-                    <h4 class="titulo-descripcion">Pasos Para clonar</h4>
-                    <ul>Abrir Visual Studio Code</ul>
-                    <ul>Control + shift + p</ul>
-                    <ul>Buscar Clone</ul>
-                    <ul>Copiar Url Control + V</ul>
-                    <ul>Seleccionar Carpeta Donde deseas descargar el repositorio</ul>
-                    <h4 class="titulo-descripcion">Pasos Subir Commits</h4>
-                    <ul>Abrir Source Control</ul>
-                    <ul>Hacer click en el símbolo + al lado de los archivos que quieres subir</ul>
-                    <ul>Click en "Commit"</ul>
-                    <h4 class="titulo-descripcion">Editar Código Desde Github</h4>
-                    <ul>Entrar Al repositorio</ul>
-                    <ul>Entrar al archivo que deseamos editar</ul>
-                    <ul>Realizar cambios necesarios</ul>
-                    <ul>Click Commit Change Botón Verde</ul>
-                    <h4 class ="titulo-descripcion">Resolución de problemas en Github</h4>
-                    <ul>Resolución de problemas en la misma línea de código</ul>
-                    <ul>Resolución de problema varios archivos</ul>
-                </li>
-            </div>
-        </div>
 
-        <div class="container-info2">
-            <h1 class="titulo">CURSO JAVA</h1>
-            <h2>PRACTICA GIT COMMITS</h2>
-            <h4>Pendientes para siguiente clase.</h4>
-            <li class="lista1">
-                <h4 class="titulo-descripcion">Github Desktop:</h4>
-                <ul> <a href="https://desktop.github.com/">Descargar Github Desktop</a></ul>
-                <ul>Copiar repositorios de clases</ul>
-                <ul>Probar usos</ul>
-                <h4 class="titulo-descripcion">Ramas / Branchs:</h4>
-                <ul>Estudiar uso de ramas en GitHub</ul>
-                <h4 class="titulo-descripcion">.Gitignore:</h4>
-                <ul>Estudiar Gitignore</ul>
-                <h4 class="titulo-descripcion">Autoevaluacion:</h4>
-                <ul>Realizar Test-autoevaluación plataforma Adecco</ul>
+
+<style>
+    .bg-welcome{
+        background-color:rgb(255, 255, 255);
+    }
+
+    .img-welcome{
+        background-image: url("https://img.freepik.com/free-photo/glowing-lines-human-heart-3d-shape-dark-background-generative-ai_191095-1435.jpg");
+        padding-top: 250px;
+        padding-bottom: 250px;
+        background-position: center;
+        background-size: cover;
+        
+    }
+</style>
+
+
+<body>
+
+  
+    <header>
+      <nav class="navbar bg-body-tertiary  navbar-expand-lg" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="https://jehiell.github.io/">
+            <img src="https://i.ibb.co/HXncJbr/logo-tech2.png" alt="Bootstrap" width="100" height="100">
+          </a>
+
+          <!--Menu Hamburguesa-->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+          <!--Enlaces de navegación-->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Ofertas</a>
+                </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contactanos</a>
+              </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Smart-Tv</a></li>
+            <li><a class="dropdown-item" href="#">Dispositivos Moviles</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Gadgets</a></li>
+            </ul>
+            
+            </ul>
+            <div class="d-flex">
+              <button id="toggleTheme" class="fa-regular fa-sun ms-2 rounded-5" type="button"  onclick="toggleTheme()"></button>
+              <button class="btn btn-primary ms-2" type="button">Login</button>
+              <button class="btn btn-success ms-2" type="button">Registro</button>
+              
+
+              </div>
         </div>
-    </section>
+        
+      </nav>
+    </header>
 
-    <script>
-      // Fecha objetivo: 30 de mayo de este año
-      const fechaObjetivo = new Date(2024 , 4, 30);
+  <main>
 
-      // Función para actualizar el cronómetro
-      function actualizarCronometro() {
-        const ahora = new Date();
-        const diferencia = fechaObjetivo - ahora;
+      <div class="img-welcome text-center ">
+        <h1>Bienvenido Al Black Friday</h1>
+        <p >Tech chef te da la bienvenida a la temporada de compras.</p>
+      </div>
+    <div class="container mt-5"> 
+          
+            
+            <div class="row mt-5">
+        
+                <div class="col text-center">
+                    <h3>Moviles</h3>
+                    <p>Equipos celulares como iphone, huawei y demas.</p>
+        
+                    <div class="col ">
 
-        // Calcula los días, horas, minutos y segundos restantes
-        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+                        <img src="https://marketing4ecommerce.net/wp-content/uploads/2018/02/Hay-m%C3%A1s-m%C3%B3viles-conectados-a-Internet-compressor.jpg" class="img-fluid rounded-5" alt="...">
+                        <p class="text-center mt-3">Iphone 15</p>
+    
+                    </div>
 
-        // Muestra el cronómetro en un elemento HTML
-        document.getElementById("cronometro").innerHTML =
-          dias + "d " + horas + "h " + minutos + "m " + segundos + "s";
+                    <div class="mt-3 text-center">
+                        <button type="btnPrecio" class="btn btn-outline-primary">Ver precio</button>
+                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
+        
+                    </div>
+        
+                </div>
+                <div class="col  text-center">
+                    <h3>TV</h3>
+                    <p>Marcas como Lg, Samsung, Android TV.</p>
+        
+                    <div class="col">
 
-        // Verifica si la fecha objetivo ha pasado
-        if (diferencia <= 0) {
-          document.getElementById("cronometro").innerHTML = "¡Tiempo cumplido!";
-        }
-      }
+                        <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/03/smart-tv-1887483.jpg?tf=3840x" class="img-fluid rounded-5" alt="...">
+                        <p class="text-center mt-3">Lg SmartTv</p>
+    
+                    </div>
 
-      // Actualiza el cronómetro cada segundo
-      setInterval(actualizarCronometro, 1000);
+                    <div class="text-center">
+                        <button id="btnPrecio" type="button" class="btn btn-outline-primary">Ver precio</button>
+                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
+        
+                    </div>
+        
+                </div>
+                <div class="col text-center">
+                    <h3>Ordenadores</h3>
+                    <p>Equipos celulares como Asus, Mac y demas.</p>
+        
+                      <div class="col ">
 
-      // Llama a la función para asegurarse de que el cronómetro se actualice de inmediato
-      actualizarCronometro();
-    </script>
+                        <img src="https://www.laptops-spain.com/wp-content/uploads/2021/04/laptops-category-380x250.jpg" class="img-fluid rounded-5" alt="...">
+                        <p class="text-center mt-3">Macbook Pro</p>
+    
+                    </div>
+
+                    <div class=" text-center">
+                        <button  id="btnPrecio" type="button" class="btn btn-outline-primary">Ver precio</button>
+                        
+                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
+                       
+        
+                    </div>
+        
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col mt-3">
+                    <h2>Listado de equipos</h2>
+                    <p>Practicando lenguajes de programación con sintaxis basicas para construir un programa.</p>
+        
+                    <div class="mt-3 text-center">
+                        <button type="button" class="btn btn-outline-primary mb-2">Primary</button>
+                        <button type="button" class="btn btn-outline-secondary mb-2">Secondary</button>
+        
+                    </div>
+        
+                </div>   
+                
+                <div class="col mt-3">
+        
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Asus </li>
+                        <li class="list-group-item">Javascript</li>
+                        <li class="list-group-item">Python</li>
+                        <li class="list-group-item">SQL</li>
+                      </ol>
+                    
+        
+                </div>
+                
+            </div>
+        
+            <div class="row mt-5">
+        
+                <div class="col mt-3 mt-b 3">
+                    <h2>Frameworks</h2>
+                    <p>Practicando framkeworks de programación con sintaxis basicas para construir un programa.</p>
+        
+                    <div class="m-3 text-center">
+                        <button type="button" class="btn btn-outline-primary mb-2">Primary</button>
+                        <button type="button" class="btn btn-outline-secondary mb-2">Secondary</button>
+        
+                    </div>
+        
+                </div>
+                
+                <div class="col mt-3">
+        
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Bootstrap</li>
+                        <li class="list-group-item">Angular</li>
+                        <li class="list-group-item">Spring</li>
+                      </ol>
+                    
+        
+                </div>
+                
+            </div>
+      </div>
+
+        
+
+  </main>
+
+  <footer>
+    <div class="container-fluid mt-5 " >
+      <footer class="py-5 border-top">
+        <div class="row">
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Categorias</h5>
+            <ul class="nav flex-column  ">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Smart-Tv</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Dispositivos Moviles</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gadgets</a></li>
+             
+            </ul>
+          </div>
+    
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Sección</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Inicio</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Productos</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ofertas</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Setup</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="/html/014.tablas.html" class="nav-link p-0 text-body-secondary">Administración de productos</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-md-5 offset-md-1 mb-3">
+            <form>
+              <h5>Subscribete A Tech Chef Newsletter</h5>
+              <p>Recibe nuestras ofertas mensuales.</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+          <p>© 2023 Company, Inc. All rights reserved.</p>
+         
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="fab fa-twitter"></i></a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="fab fa-instagram"></i></a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="fab fa-facebook"></i></a></li>
+          </ul>
+
+          <a href="https://jehiell.github.io/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="https://i.ibb.co/HXncJbr/logo-tech2.png" alt="Logo" width="100" class="d-inline-block align-text-top">
+            </a>
+          
+
+        </div>
+        
+          
+       
+        
+      </footer>
+    </div>
+  </footer>
+
+   
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" ></script>
+  <script src="/html/script.js" ></script>
+  
+
+    
 </body>
 </html>
