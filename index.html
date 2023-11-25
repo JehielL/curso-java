@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <title>Ecommerce Tech Chef</title>
 </head>
 
-
+  <!--Estilos-->
 <style>
     .bg-welcome{
         background-color:rgb(255, 255, 255);
     }
 
     .img-welcome{
-        background-image: url("https://img.freepik.com/free-photo/glowing-lines-human-heart-3d-shape-dark-background-generative-ai_191095-1435.jpg");
+        background-image: url("https://i.pinimg.com/originals/38/0a/0c/380a0c2c7bc57319a389b17bf4bd7014.jpg");
         padding-top: 250px;
         padding-bottom: 250px;
         background-position: center;
@@ -26,9 +27,9 @@
 </style>
 
 
-<body>
+<body>  
 
-  
+   <!-- Header-->
     <header>
       <nav class="navbar bg-body-tertiary  navbar-expand-lg" >
         <div class="container-fluid">
@@ -72,9 +73,40 @@
             
             </ul>
             <div class="d-flex">
-              <button id="toggleTheme" class="fa-regular fa-sun ms-2 rounded-5" type="button"  onclick="toggleTheme()"></button>
-              <button class="btn btn-primary ms-2" type="button">Login</button>
+              <button id="toggleTheme" class="fa-regular fa-sun ms-2 rounded-5 btn btn-link nav-link py-2 px-1 px-lg-2" type="button"  onclick="toggleTheme()"></button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Login
+              </button>
               <button class="btn btn-success ms-2" type="button">Registro</button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                   
+                    <div class="modal-body">
+                     
+                      <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
               
 
               </div>
@@ -82,21 +114,24 @@
         
       </nav>
     </header>
-
+    <!--Contenido Principal -->
   <main>
 
-      <div class="img-welcome text-center ">
+      <div class="img-welcome text-center animate__animated animate__bounceInRight container-fluid ">
         <h1>Bienvenido Al Black Friday</h1>
-        <p >Tech chef te da la bienvenida a la temporada de compras.</p>
+        <h2 >50% de Descuento en todos nuestros productos</h2>
+        <p >Comprometidos con nuestros clientes en Tech chef te da la bienvenida a la temporada de compras, nos aseguramos de buscar los mejores precios a nivel mundial y traerlos hasta ti, con solo 1 click.</p>
       </div>
-    <div class="container mt-5"> 
+    
+      <div class="container mt-5"> 
           
             
             <div class="row mt-5">
+              <h1 class="text-center">Nuestros Productos</h1>
         
                 <div class="col text-center">
                     <h3>Moviles</h3>
-                    <p>Equipos celulares como iphone, huawei y demas.</p>
+                    <p>Equipos celulares como Iphone, Huawei y demas.</p>
         
                     <div class="col ">
 
@@ -106,7 +141,7 @@
                     </div>
 
                     <div class="mt-3 text-center">
-                        <button type="btnPrecio" class="btn btn-outline-primary">Ver precio</button>
+                        
                         <button type="button" class="btn btn-outline-secondary">Comprar</button>
         
                     </div>
@@ -124,7 +159,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button id="btnPrecio" type="button" class="btn btn-outline-primary">Ver precio</button>
+                        
                         <button type="button" class="btn btn-outline-secondary">Comprar</button>
         
                     </div>
@@ -142,10 +177,46 @@
                     </div>
 
                     <div class=" text-center">
-                        <button  id="btnPrecio" type="button" class="btn btn-outline-primary">Ver precio</button>
+                      
                         
-                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
+                      <button type="button" class="btn btn-outline-secondary">Comprar</button>
                        
+        
+                    </div>
+        
+                </div>
+                <div class="col text-center">
+                  <h3>Consolas</h3>
+                  <p>Equipos celulares como iphone, huawei y demas.</p>
+      
+                  <div class="col ">
+
+                      <img src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2023/01/24/16745471960518.jpg" class="img-fluid rounded-5" alt="...">
+                      <p class="text-center mt-3">Iphone 15</p>
+  
+                  </div>
+
+                  <div class="mt-3 text-center">
+                     
+                      <button type="button" class="btn btn-outline-secondary">Comprar</button>
+      
+                  </div>
+      
+              </div>
+              <div class="col text-center">
+                    <h3>Gadgets</h3>
+                    <p>Equipos celulares como iphone, huawei y demas.</p>
+        
+                    <div class="col ">
+
+                        <img src="https://i.blogs.es/55164a/portada/840_560.jpg" class="img-fluid rounded-5" alt="...">
+                        <p class="text-center mt-3">Iphone 15</p>
+    
+                    </div>
+
+                    <div class="mt-3 text-center">
+                       
+                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
         
                     </div>
         
@@ -154,7 +225,7 @@
             
             <div class="row mt-5">
                 <div class="col mt-3">
-                    <h2>Listado de equipos</h2>
+                    <h2>¿Porque Tech Chef?</h2>
                     <p>Practicando lenguajes de programación con sintaxis basicas para construir un programa.</p>
         
                     <div class="mt-3 text-center">
@@ -179,38 +250,13 @@
                 
             </div>
         
-            <div class="row mt-5">
-        
-                <div class="col mt-3 mt-b 3">
-                    <h2>Frameworks</h2>
-                    <p>Practicando framkeworks de programación con sintaxis basicas para construir un programa.</p>
-        
-                    <div class="m-3 text-center">
-                        <button type="button" class="btn btn-outline-primary mb-2">Primary</button>
-                        <button type="button" class="btn btn-outline-secondary mb-2">Secondary</button>
-        
-                    </div>
-        
-                </div>
-                
-                <div class="col mt-3">
-        
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item">Bootstrap</li>
-                        <li class="list-group-item">Angular</li>
-                        <li class="list-group-item">Spring</li>
-                      </ol>
-                    
-        
-                </div>
-                
-            </div>
+      
       </div>
 
         
 
   </main>
-
+  <!--Footer-->
   <footer>
     <div class="container-fluid mt-5 " >
       <footer class="py-5 border-top">
@@ -284,7 +330,7 @@
   </footer>
 
    
-
+  <!--Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" ></script>
   <script src="/script.js" ></script>
   
