@@ -24,14 +24,16 @@ function toggleImage(){
     }
     
 }
+function showPassword() {
+    const passInput = document.getElementById('pass');
+    const toggleButton = document.getElementById('eyeButton');
 
-function showPassword(){
-    let passInput =  document.getElementById('pass');
-       if (passInput.type === 'password'){
- 
+    if (passInput.type === 'password') {
         passInput.type = 'text';
- 
-     } else {
-        passInput.type = 'password'
+        toggleButton.innerHTML = '<i class="fa-regular fa-eye"></i>';
+    } else {
+        passInput.type = 'password';
+        toggleButton.innerHTML = '<i class="fa-solid fa-eye"></i>';
     }
- }
+}
+
