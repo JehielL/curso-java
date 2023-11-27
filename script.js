@@ -22,4 +22,16 @@ function toggleImage(){
         logo.classList.remove('fa-solid', 'fa-moon', 'ms-2', 'rounded-5');
         logo.classList.add('fa-regular', 'fa-sun', 'ms-2', 'rounded-5');
     }
+    
 }
+
+function showPassword(){
+    let passInput =  document.getElementById('pass');
+       if (passInput.type === 'password'){
+ 
+        passInput.type = 'text';
+ 
+     } else {
+        passInput.type = 'password'
+    }
+ }

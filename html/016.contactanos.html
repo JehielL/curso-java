@@ -98,7 +98,7 @@
                           <input id="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" 
                           >
                           <button class=" rounded-5 btn btn-link nav-link py-2 px-1 px-lg-2" type="button" onclick="showPassword()">
-                            <i class="fa-solid fa-eye"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i> 
                         </button>
                         </div>
                         <div class="form-group form-check">
@@ -128,135 +128,55 @@
         <p >Comprometidos con nuestros clientes en Tech chef te da la bienvenida a la temporada de compras, nos aseguramos de buscar los mejores precios a nivel mundial y traerlos hasta ti, con solo 1 click.</p>
       </div>
     
-      <div class="container mt-5 mx-auto"> 
-          
-            
-            <div class="row mt-5">
-              <h1 class="text-center">Nuestros Productos</h1>
-        
-                <div class="col text-center">
-                    <h3>Moviles</h3>
-                    <p>Equipos celulares como Iphone, Huawei y demas.</p>
-        
-                    <div class="col ">
+      <div class="container mx-auto ms-5 container-fluid mt-5">
+        <div class="row ms-5">
+          <form class="form-horizontal" method="post">
+            <fieldset>
+                <legend class="text-center header">Contact us</legend>
 
-                        <img src="https://marketing4ecommerce.net/wp-content/uploads/2018/02/Hay-m%C3%A1s-m%C3%B3viles-conectados-a-Internet-compressor.jpg" class="img-fluid rounded-5" alt="...">
-                        <p class="text-center mt-3">Iphone 15</p>
-    
+                <div class="form-group ms-5">
+                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                    <div class="col-md-8">
+                        <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
                     </div>
-
-                    <div class="mt-3 text-center">
-                        
-                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
-        
-                    </div>
-        
                 </div>
-                <div class="col  text-center">
-                    <h3>TV</h3>
-                    <p>Marcas como Lg, Samsung, Android TV.</p>
-        
-                    <div class="col">
-
-                        <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/03/smart-tv-1887483.jpg?tf=3840x" class="img-fluid rounded-5" alt="...">
-                        <p class="text-center mt-3">Lg SmartTv</p>
-    
+                <div class="form-group ms-5">
+                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                    <div class="col-md-8">
+                        <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
                     </div>
-
-                    <div class="text-center">
-                        
-                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
-        
-                    </div>
-        
                 </div>
-                <div class="col text-center">
-                    <h3>Ordenadores</h3>
-                    <p>Equipos celulares como Asus, Mac y demas.</p>
-        
-                      <div class="col ">
 
-                        <img src="https://www.laptops-spain.com/wp-content/uploads/2021/04/laptops-category-380x250.jpg" class="img-fluid rounded-5" alt="...">
-                        <p class="text-center mt-3">Macbook Pro</p>
-    
+                <div class="form-group ms-5">
+                    <span class="text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                    <div class="col-md-8">
+                        <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
                     </div>
-
-                    <div class=" text-center">
-                      
-                        
-                      <button type="button" class="btn btn-outline-secondary">Comprar</button>
-                       
-        
-                    </div>
-        
                 </div>
-                <div class="col text-center">
-                  <h3>Consolas</h3>
-                  <p>Equipos celulares como iphone, huawei y demas.</p>
-      
-                  <div class="col ">
 
-                      <img src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2023/01/24/16745471960518.jpg" class="img-fluid rounded-5" alt="...">
-                      <p class="text-center mt-3">Iphone 15</p>
-  
-                  </div>
-
-                  <div class="mt-3 text-center">
-                     
-                      <button type="button" class="btn btn-outline-secondary">Comprar</button>
-      
-                  </div>
-      
-              </div>
-              <div class="col text-center">
-                    <h3>Gadgets</h3>
-                    <p>Equipos celulares como iphone, huawei y demas.</p>
-        
-                    <div class="col ">
-
-                        <img src="https://i.blogs.es/55164a/portada/840_560.jpg" class="img-fluid rounded-5" alt="...">
-                        <p class="text-center mt-3">Iphone 15</p>
-    
+                <div class="form-group ms-5">
+                    <span class="text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                    <div class="col-md-8">
+                        <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
                     </div>
-
-                    <div class="mt-3 text-center">
-                       
-                        <button type="button" class="btn btn-outline-secondary">Comprar</button>
-        
-                    </div>
-        
                 </div>
-            </div>
-            
-            <div class="row mt-5">
-                <div class="col mt-3">
-                    <h2>¿Porque Tech Chef?</h2>
-                    <p>Practicando lenguajes de programación con sintaxis basicas para construir un programa.</p>
-        
-                    <div class="mt-3 text-center">
-                        <button type="button" class="btn btn-outline-primary mb-2">Primary</button>
-                        <button type="button" class="btn btn-outline-secondary mb-2">Secondary</button>
-        
+
+                <div class="form-group ms-5">
+                    <span class="text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                    <div class="col-md-8">
+                        <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
                     </div>
-        
-                </div>   
-                
-                <div class="col mt-3">
-        
-                    <ol class="list-group list-group-numbered">
-                        <li class="list-group-item">Asus </li>
-                        <li class="list-group-item">Javascript</li>
-                        <li class="list-group-item">Python</li>
-                        <li class="list-group-item">SQL</li>
-                      </ol>
-                    
-        
                 </div>
-                
-            </div>
-        
-      
-      </div>
+
+                <div class="form-group ms-5">
+                    <div class="col-md-12 text-center mt-5">
+                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        </div>
+    </div>
 
         
 
