@@ -32,3 +32,17 @@ SELECT * FROM address WHERE district = 'California' OR district = 'Nagasaki';
 
 SELECT * FROM address WHERE address LIKE  '%Avenue%';
 SELECT * FROM customer  WHERE email NOT LIKE '%@SAKILACUSTOMER.ORG';
+
+SELECT * FROM CITY;
+
+SELECT * FROM country WHERE country = 'SPAIN';
+
+INSERT INTO city (city, country_id) VALUES ('leon',87);
+
+SELECT * FROM CITY;
+show columns from film; 
+
+INSERT INTO film
+ (title, language_id, rental_duration, rental_rate, replacement_cost)
+VALUES
+('LA CASA REDONDA', 1, 5, 2.99, 30.20);
