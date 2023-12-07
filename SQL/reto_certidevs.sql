@@ -139,6 +139,7 @@ GROUP BY employee_id
 ORDER BY cantidad_pedidos DESC;
 
 -- CLIENTES con mas pedidos 
+
 SELECT c.customer_id, c.first_name, c.last_name, COUNT(o.order_id) AS cantidad_pedidos
 FROM customers c, orders o
 WHERE c.customer_id = o.customer_id
