@@ -1,3 +1,5 @@
+#Bucle while 
+
 indice = 0
 
 while indice < 20:
@@ -13,3 +15,5 @@ while indice2 < len(precios):
     precios[indice2] *= 0.80
     indice2 += 1
 print(precios)
+
+
