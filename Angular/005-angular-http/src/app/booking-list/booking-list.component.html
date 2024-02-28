@@ -1,1 +1,11 @@
 <p>booking-list works!</p>
+
+<ul>
+    @for (booking of bookings; track bookings) {
+
+       
+        <li>
+            <a [routerLink]="['/bookings', booking.id, 'detail']"> {{booking.title}}</a>
+        </li>
+    }
+</ul>
