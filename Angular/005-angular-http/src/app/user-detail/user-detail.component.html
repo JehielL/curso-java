@@ -1,1 +1,14 @@
-<p>user-detail works!</p>
+
+@if (user) {
+    <h1>Datos del usuario</h1>
+    <p>{{user.email}}</p>
+    <p>{{user.username}}</p>
+    <p>{{user.phone}}</p>
+}
+
+@for (cart of carts; track cart.id) {
+    <h1>Compras</h1>
+    <p>{{cart.id}} {{cart.date}} {{cart.products.length}}</p>
+}@empty {
+    <p>Este usuario no ha realizado ninguna compra.</p>
+}
