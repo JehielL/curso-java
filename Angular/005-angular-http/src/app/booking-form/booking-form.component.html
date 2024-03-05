@@ -1,0 +1,23 @@
+<div class="container-fuid m-5">
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="bookingForm" (ngSubmit)="save()">
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="title" 
+                    placeholder="name@example.com" formControlName="title">
+                    <label for="floatingInput">Titulo de reseva</label>
+                  </div>
+            
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-success">Enviar</button>
+                    <button class="btn btn-warning">cancelar</button>
+            
+                  </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
