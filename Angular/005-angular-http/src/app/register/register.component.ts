@@ -33,6 +33,7 @@ export class RegisterComponent {
 
     console.log(register)
 
+    
 
   }
 }

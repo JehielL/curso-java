@@ -1,0 +1,9 @@
+.form-signin{
+
+    max-width: 330px;
+    padding: 1rem;
+    border: 2px solid black; 
+    border-radius: 10px; 
+    padding: 30px; 
+    
+}

@@ -1,11 +1,15 @@
 <div class="container-fuid m-5 d-flex justify-content-center align-items-center ">
-    <div class="row custom-div">
+    <div class="row custom-div justify-content-center">
         
         <div class="col">
             <form [formGroup]="bookingForm" (ngSubmit)="save()">
-
+                <div class="d-flex justify-content-center align-items-center mb-4">
+                    <img src="/assets/Logo_Limpio_Pokeball.png" alt="" width="100" height="100">
+                </div>
+                <h1 class="h3 mb-3 fw-normal">Reserva ahora!</h1>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="title" 
+                    
+                        <input type="text" class="form-control" id="title" 
                     placeholder="Angular avanzado" formControlName="title">
                     <label for="floatingInput">Titulo de reseva</label>
                 </div>
