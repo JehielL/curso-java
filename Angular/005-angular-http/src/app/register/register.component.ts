@@ -19,17 +19,17 @@ export class RegisterComponent {
     password: new FormControl(''),
     passwordConfirm: new FormControl('')
   },
-  {validators: this.passwordConfirmValidator} // Validador personalizado que comprueba dos campos al mismo tiempo
+    { validators: this.passwordConfirmValidator } // Validador personalizado que comprueba dos campos al mismo tiempo
   );
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   passwordConfirmValidator(control: AbstractControl) {
 
     if (control.get('password')?.value === control.get('passwordConfirm')?.value) {
-      return null; // las password coinciden por tanto no hay error devolvemos null
+      return null;
     } else {
-      // las password no coinciden devolver un error:
+
       return {
         'confirmError': true
       }
@@ -44,9 +44,8 @@ export class RegisterComponent {
       passwordConfirm: this.registerForm.get('passwordConfirm')?.value ?? '',
     }
     console.log(register);
-    // enviar registro a backend
 
-    //limpiar el formulario o redirigir a pantalla de login
+
     this.registerForm.reset();
   }
 

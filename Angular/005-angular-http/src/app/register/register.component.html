@@ -60,6 +60,12 @@
                         <input type="password" class="form-control" id="passwordConfirm" placeholder="Password"
                             formControlName="passwordConfirm">
                         <label for="passwordConfirm">Password confirm</label>
+                        @if (registerForm.controls.passwordConfirm.touched && registerForm.getError('confirmError')) {
+
+                        <div>
+                            <small class="text-danger">Las contraseñas no coinciden.</small>
+                        </div>
+                        }
                     </div>
                     <br>
 
