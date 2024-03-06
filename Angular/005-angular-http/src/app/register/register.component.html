@@ -1,1 +1,31 @@
-<p>register works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            
+        </div>
+        <div class="col">
+            <main class="form-signin w-100 m-auto">
+                <form [formGroup]="registerForm" (ngSubmit)="save()">
+                  <img class="mb-4" src="/assets/Logo_Limpio_Pokeball.png" alt="" width="100" height="100">
+                  <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+              
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
+                    <label for="email">Email address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+                    <label for="password">Password</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="phone" class="form-control" id="phone" placeholder="Password" formControlName="phone">
+                    <label for="phone">Password</label>
+                  </div>
+              
+                  <button class="btn btn-outline-dark w-100 py-2" type="submit">Iniciar sesión</button>
+                  <p class="mt-5 mb-3 text-body-secondary">© 2017–2024</p>
+                </form>
+              </main>
+        </div>
+    </div>
+</div>
