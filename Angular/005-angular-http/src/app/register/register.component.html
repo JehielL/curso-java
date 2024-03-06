@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            
+
         </div>
         <div class="col">
             <main class="form-signin w-100 m-auto m-5">
@@ -9,28 +9,69 @@
                     <div class="d-flex justify-content-center align-items-center mb-4">
                         <img src="/assets/Logo_Limpio_Pokeball.png" alt="" width="100" height="100">
                     </div>
-                  <h1 class="h3 mb-3 fw-normal">Registrarse</h1>
-              
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
-                    <label for="email">Email address</label>
-                  </div>
-                  <br>
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="phone" placeholder="phone" formControlName="phone">
-                    <label for="phone">Phone</label>
-                  </div>
-                  <br>
-                  <div class="form-floating">
-                    <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-                    <label for="password">Password</label>
-                  </div>
-                  <br>
-              
-                  <button class="btn btn-outline-dark w-100 py-2" type="submit">Registrarse</button>
-                  <p class="mt-5 mb-3 text-body-secondary">© 2017–2024</p>
+
+                    <div class="d-flex justify-content-center align-items-center mb-4">
+                        <h1 class="h3 mb-3 fw-normal align-items-center">Registrarse</h1>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                            formControlName="email">
+                        <label for="email">Email address</label>
+                        @if (registerForm.controls.email.touched && registerForm.controls.email.errors) {
+
+                        <div class="container-fluid">
+                            @if (registerForm.controls.email.errors['required']) {
+
+                            <small class="text-danger">Email es obligatorio.</small>
+                            }
+                            @if (registerForm.controls.email.errors['email']) {
+
+                            <small class="text-danger">El formato del email introducido es incorrecto.</small>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="phone" placeholder="phone" formControlName="phone">
+                        <label for="phone">Phone</label>
+                        @if (registerForm.controls.phone.touched && registerForm.controls.phone.errors) {
+
+                        <div class="container-fluid">
+                            @if (registerForm.controls.phone.errors['required']) {
+                            <small class="text-danger">Teléfono es obligatorio</small>
+                            }
+
+                            @if (registerForm.controls.phone.errors['pattern']) {
+                            <small class="text-danger">Formato de telefono incorrecto. Debe tener 9 dígitos.</small>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            formControlName="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="passwordConfirm" placeholder="Password"
+                            formControlName="passwordConfirm">
+                        <label for="passwordConfirm">Password confirm</label>
+                    </div>
+                    <br>
+
+                    <button class="btn btn-outline-dark w-100 py-2" type="submit"
+                        [disabled]="registerForm.invalid">Registrarse</button>
+                    @if (registerForm.invalid) {
+                    <small class="text-danger">Debes completar de forma correcta los campos para poder guardar.</small>
+                    }
+
+                    <p class="mt-5 mb-3 text-body-secondary">Bitebooking© 2017 - 2024</p>
                 </form>
-              </main>
+            </main>
         </div>
     </div>
 </div>
