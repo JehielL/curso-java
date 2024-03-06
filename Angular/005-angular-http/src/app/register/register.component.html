@@ -2,6 +2,8 @@
     <div class="row">
         <div class="col">
 
+            
+
         </div>
         <div class="col">
             <main class="form-signin w-100 m-auto m-5">
@@ -60,12 +62,28 @@
                         <input type="password" class="form-control" id="passwordConfirm" placeholder="Password"
                             formControlName="passwordConfirm">
                         <label for="passwordConfirm">Password confirm</label>
+                       
+                        @if (
+                            registerForm.controls.passwordConfirm.touched && 
+                        (
+                            registerForm.controls.password.errors || 
+                            registerForm.controls.passwordConfirm.errors || 
+                            registerForm.getError('confirmError'))) {
+                            <div>
+                                <small class="text-danger">Las contraseñas y confirmación son obligatorias,
+                                    deben coincidir y estar comprendidas entre 8 y 30 caracteres.</small>
+                            </div>
+
+                        }
+                       <!--
                         @if (registerForm.controls.passwordConfirm.touched && registerForm.getError('confirmError')) {
 
                         <div>
                             <small class="text-danger">Las contraseñas no coinciden.</small>
                         </div>
                         }
+                       -->
+                        
                     </div>
                     <br>
 

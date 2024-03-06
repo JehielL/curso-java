@@ -1,5 +1,76 @@
+.custom-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Opcional: hace que el contenedor ocupe toda la altura disponible */
+}
+
+
+
 .custom-div {
     border: 4px solid black; 
     border-radius: 10px; 
-    padding: 30px; 
+}
+
+.feature-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: .75rem;
+}
+  
+.icon-square {
+    width: 3rem;
+    height: 3rem;
+    border-radius: .75rem;
+}
+  
+.text-shadow-1 { 
+    text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); 
+}
+.text-shadow-2 { 
+    text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); 
+}
+.text-shadow-3 { 
+    text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); 
+}
+  
+.card-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: grayscale(100%);
+    transition: filter 1s ease;
+}
+.card-cover:hover {
+    filter: grayscale(0%);
+}
+
+.feature-icon-small {
+    width: 3rem;
+    height: 3rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in;
+}
+
+.title {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: -5px;
+}
+
+a {
+    color: white; 
+    text-decoration: none; 
+}
+
+.col {
+    margin-top: 50px; /* Ajusta el espacio en la parte superior de la columna */
+    padding: 50px; /* Ajusta el relleno interno de la columna */
+}
+
+.custom-card-size {
+    width: 100%; /* Ajusta el ancho de la tarjeta según tus preferencias */
+    height: 400px; /* Esto mantendrá la proporción de la imagen de fondo */
 }
