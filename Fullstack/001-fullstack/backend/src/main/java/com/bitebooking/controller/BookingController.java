@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,6 +27,12 @@ public class BookingController {
         log.info("REST request to findAll Bookings");
 
         return this.repo.findAll();
+    }
+
+    @GetMapping("bookings/{id}")
+    public Booking findById(@PathVariable Long id){
+
+        return this.repo.findById(id).orElseThrow();
     }
 
 }

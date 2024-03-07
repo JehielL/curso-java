@@ -1,6 +1,6 @@
 @for (booking of bookings; track booking.id) {
 
-<p>{{booking.id}} {{booking.title}} {{booking.numTable}}</p> 
+<p><a [routerLink]="['/bookings', booking.id, 'detail']">{{booking.id}}</a> {{booking.title}} {{booking.numTable}}</p> 
 
 }@empty {
 
