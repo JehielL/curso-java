@@ -1,0 +1,8 @@
+@for (booking of bookings; track booking.id) {
+
+<p>{{booking.id}} {{booking.title}}</p> 
+
+}@empty {
+
+    <p>No hay Reservas registradas</p>
+}

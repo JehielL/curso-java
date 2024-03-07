@@ -1,4 +1,10 @@
 package com.bitebooking.repository;
 
-public interface BookingRepository extends org.springframework.data.jpa.repository.JpaRepository<com.bitebooking.model.Booking, java.lang.Long> {
+import com.bitebooking.model.Booking;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookingRepository extends JpaRepository<Booking, Long> {
+    Booking findByTitle(String title);
+
+
 }
