@@ -26,12 +26,12 @@
                 </div>
 
                 <div class="form-floating">
-                    <select class="form-select" id="menu" formControlName="menu">
+                    <select class="form-select" id="menu" formControlName="menu" [compareWith]="compareObjects">
                       
         
                         <!-- iterar sobre el array de authors mostrando cada uno -->
                       @for (menu of menus; track menu.id) {
-                        <option>{{menu.title}}</option>
+                        <option [ngValue]="menu">{{menu.title}}</option>
                       }
         
                     </select>

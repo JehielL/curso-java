@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Booking } from '../model/booking.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ import { Menu } from '../model/menu.model';
 })
 export class BookingFormComponent implements OnInit {
 
-  bookingForm = this.fb.group({
+  /*bookingForm = this.fb.group({
     id: [0],
     title: [''],
     numTable: [0.0],
@@ -26,7 +26,18 @@ export class BookingFormComponent implements OnInit {
       category: [''],
       active: [false]
     })
-  });
+  });*/
+
+  bookingForm = new FormGroup({
+    id: new FormGroup<number>(0),
+    title: new FormGroup<string>(''),
+    numTable: new FormGroup<number>(0),
+    menu: new FormControl()
+  })
+
+  
+
+
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
   menus: Menu[] = []; // array de autores para asociar un autor al libro
@@ -44,6 +55,7 @@ export class BookingFormComponent implements OnInit {
       .subscribe(menus => this.menus = menus);
 
     this.activatedRoute.params.subscribe(params => {
+      
       const id = params['id'];
       if (!id) return;
 
@@ -54,6 +66,7 @@ export class BookingFormComponent implements OnInit {
           title: bookingFromBackend.title,
           numTable: bookingFromBackend.numTable,
           menu: bookingFromBackend.menu
+         
 
         });
 
@@ -79,6 +92,15 @@ export class BookingFormComponent implements OnInit {
         this.router.navigate(['/bookings', bookFromBackend.id, 'detail']);
       });
     }
+  } 
+
+  compareObjects(o1: any, o2: any): boolean{
+
+    if (o1 && o2){
+      return o1.id == o2.id;
+    }
+
+    return o1 == o2;
   }
 
 
