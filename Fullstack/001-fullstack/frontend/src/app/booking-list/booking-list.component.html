@@ -1,8 +1,17 @@
-@for (booking of bookings; track booking.id) {
+<h1 class="mt-5 mb-5">Listado de reservas</h1>
 
-<p><a [routerLink]="['/bookings', booking.id, 'detail']">{{booking.id}}</a> {{booking.title}} {{booking.numTable}}</p> 
+@if (showDeleteBookingMessage) {
 
-}@empty {
-
-    <p>No hay Reservas registradas</p>
+    <ngb-alert type="success" [dismissible]="false">Reserva eliminada correctamente</ngb-alert>
 }
+
+@for (booking of bookings; track booking.id) {
+    <p>
+      {{booking.id}} {{booking.title}} {{booking.numTable}}
+      <button class="btn btn-info" [routerLink]="['/bookings', booking.id, 'detail']">Ver Reserva</button>
+      <button class="btn btn-success" [routerLink]="['/bookings', booking.id, 'update']">Editar Reserva</button>
+      <button class="btn btn-danger" (click)="delete(booking)">Borrar Reserva</button>
+    </p>
+  } @empty {
+    <p>No hay Reservas actualmente.</p>
+  }

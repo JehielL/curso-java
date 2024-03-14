@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+
+            @if (isUpdate) {
+                <h1 class="mt-5 mb-5">Actualizar reserva existente con id {{bookingForm.get('id')?.value}}</h1>
+              } @else {
+                <h1 class="mt-5 mb-5">Crear una nueva reserva</h1>
+              }
+
+
+
+
+            <form [formGroup]="bookingForm" (ngSubmit)="save()">
+
+                <input type="hidden" formControlName="id">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="title" formControlName="title">
+                    <label for="title">Titulo Reserva</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="numTable" formControlName="numTable" step="1">
+                    <label for="numTable">Numero de mesa</label>
+                </div>
+
+                <div class="form-floating">
+                    <select class="form-select" id="menu" formControlName="menu">
+                      
+        
+                        <!-- iterar sobre el array de authors mostrando cada uno -->
+                      @for (menu of menus; track menu.id) {
+                        <option>{{menu.title}}</option>
+                      }
+        
+                    </select>
+                    <label for="menu">Menu asociado</label>
+                  </div>
+
+
+                @if (isUpdate) {
+                <button class="btn btn-success" type="submit">Actualizar</button>
+                } @else {
+                <button class="btn btn-success" type="submit">Crear</button>
+                }
+
+
+            </form>
+
+
+        </div>
+    </div>
+</div>

@@ -1,5 +1,8 @@
-@if (booking) {
+<h1 class="mt-5 mb-5"></h1>
 
-    <p>{{booking.id}}{{booking.title}}</p>
+@if (booking)
+{
+    <p>{{booking.id}} {{booking.title}} {{booking.numTable}} </p>
 
+    <button class="btn btn-success" [routerLink]="['/bookings', booking.id, 'update']">Editar Reserva</button>
 }
