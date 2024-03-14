@@ -1,9 +1,13 @@
 import { Menu } from "./menu.model";
+import { Restaurant } from "./restaurant.model";
 
 export interface Booking {
 
     id: number;
     title: string;
+    status: boolean;
     numTable: number;
-    menu: Menu
+    createDate: Date;
+    menu: Menu,
+    restaurant: Restaurant
 }

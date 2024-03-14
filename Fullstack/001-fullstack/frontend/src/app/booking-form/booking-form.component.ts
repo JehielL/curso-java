@@ -16,7 +16,7 @@ import { Menu } from '../model/menu.model';
 })
 export class BookingFormComponent implements OnInit {
 
-  /*bookingForm = this.fb.group({
+ /* bookingForm = this.fb.group({
     id: [0],
     title: [''],
     numTable: [0.0],
@@ -29,11 +29,11 @@ export class BookingFormComponent implements OnInit {
   });*/
 
   bookingForm = new FormGroup({
-    id: new FormGroup<number>(0),
-    title: new FormGroup<string>(''),
-    numTable: new FormGroup<number>(0),
+    id: new FormControl<number>(0),
+    title: new FormControl<string>(''),
+    numTable: new FormControl<number>(0),
     menu: new FormControl()
-  })
+  });
 
   
 
@@ -65,7 +65,9 @@ export class BookingFormComponent implements OnInit {
           id: bookingFromBackend.id,
           title: bookingFromBackend.title,
           numTable: bookingFromBackend.numTable,
-          menu: bookingFromBackend.menu
+          
+          menu: bookingFromBackend.menu,
+      
          
 
         });

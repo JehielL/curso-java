@@ -3,11 +3,12 @@ import { Booking } from '../model/booking.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-booking-list',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgbAlertModule],
+  imports: [HttpClientModule, RouterLink, NgbAlertModule, DatePipe],
   templateUrl: './booking-list.component.html',
   styleUrl: './booking-list.component.css'
 })
