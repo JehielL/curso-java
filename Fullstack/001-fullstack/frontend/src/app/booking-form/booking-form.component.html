@@ -20,12 +20,37 @@
                     <label for="title">Titulo Reserva</label>
                 </div>
 
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="status" formControlName="status">
+                  <label class="form-check-label" for="status" style="cursor:pointer;">
+                  Reserva confirmada(sí o no)
+                  </label>
+                  </div>
+
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="numTable" formControlName="numTable" step="1">
                     <label for="numTable">Numero de mesa</label>
                 </div>
 
-                <div class="form-floating">
+                <div class="form-floating mb-3">
+                  <input type="datetime-local" class="form-control" id="createDate" formControlName="createDate">
+                  <label for="createDate">Fecha de Reservación.</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <select class="form-select" id="restaurant" formControlName="restaurant" [compareWith]="compareObjects">
+                    
+      
+                      <!-- iterar sobre el array de authors mostrando cada uno -->
+                    @for (restaurant of restaurants; track restaurant.id) {
+                      <option [ngValue]="restaurant">{{restaurant.title}}</option>
+                    }
+      
+                  </select>
+                  <label for="restaurant">Restaurant asociado</label>
+                </div>
+
+                <div class="form-floating mb-3">
                     <select class="form-select" id="menu" formControlName="menu" [compareWith]="compareObjects">
                       
         
@@ -37,6 +62,8 @@
                     </select>
                     <label for="menu">Menu asociado</label>
                   </div>
+
+                 
 
 
                 @if (isUpdate) {

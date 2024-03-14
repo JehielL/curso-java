@@ -25,6 +25,7 @@ public class BackendApplication {
 
 		repo.deleteAll();
 		menuRepo.deleteAll();
+		restRepo.deleteAll();
 
 		Menu menu1 = new Menu(null, "Omakase santoryu", "Japones", true);
 		Menu menu2 = new Menu(null, "Isakaya Fest", "Japones", true);

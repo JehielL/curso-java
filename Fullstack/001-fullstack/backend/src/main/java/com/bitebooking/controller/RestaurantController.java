@@ -1,7 +1,9 @@
 package com.bitebooking.controller;
 
 import com.bitebooking.model.Menu;
+import com.bitebooking.model.Restaurant;
 import com.bitebooking.repository.MenuRepository;
+import com.bitebooking.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,16 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @CrossOrigin("*")
-@RestController
 @AllArgsConstructor
 @Slf4j
-public class MenuController {
+public class RestaurantController {
 
-    private MenuRepository repo;
+    private RestaurantRepository restRepo;
 
-    @GetMapping("menus")
-    public List<Menu> findAll(){
-        return this.repo.findAll();
+    @GetMapping("restaurants")
+    public List<Restaurant> findAll(){
+        return this.restRepo.findAll();
     }
 
 

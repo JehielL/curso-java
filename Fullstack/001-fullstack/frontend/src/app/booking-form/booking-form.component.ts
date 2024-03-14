@@ -5,6 +5,7 @@ import { Booking } from '../model/booking.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Menu } from '../model/menu.model';
+import { Restaurant } from '../model/restaurant.model';
 
 
 @Component({
@@ -31,8 +32,11 @@ export class BookingFormComponent implements OnInit {
   bookingForm = new FormGroup({
     id: new FormControl<number>(0),
     title: new FormControl<string>(''),
+    status: new FormControl<boolean>(true),
     numTable: new FormControl<number>(0),
-    menu: new FormControl()
+    createDate: new FormControl<Date>(new Date()),  
+    menu: new FormControl(),
+    restaurant: new FormControl()
   });
 
   
@@ -41,6 +45,7 @@ export class BookingFormComponent implements OnInit {
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
   menus: Menu[] = []; // array de autores para asociar un autor al libro
+  restaurants: Restaurant[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -53,6 +58,8 @@ export class BookingFormComponent implements OnInit {
     // cargar autores de backend para el selector de autores en el formulario
     this.httpClient.get<Menu[]>('http://localhost:8080/menus')
       .subscribe(menus => this.menus = menus);
+    this.httpClient.get<Restaurant[]>('http://localhost:8080/restaurants')
+      .subscribe(restaurants => this.restaurants = restaurants);
 
     this.activatedRoute.params.subscribe(params => {
       
@@ -64,12 +71,12 @@ export class BookingFormComponent implements OnInit {
         this.bookingForm.reset({
           id: bookingFromBackend.id,
           title: bookingFromBackend.title,
+          status: bookingFromBackend.status,
           numTable: bookingFromBackend.numTable,
-          
+          createDate: bookingFromBackend.createDate,
           menu: bookingFromBackend.menu,
+          restaurant: bookingFromBackend.restaurant,
       
-         
-
         });
 
         // marcar boolean true isUpdate
