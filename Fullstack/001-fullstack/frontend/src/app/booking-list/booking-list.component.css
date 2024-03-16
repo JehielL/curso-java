@@ -1,7 +1,16 @@
 .card-cover {
     position: relative;
     overflow: hidden;
-  }
+    transition: transform 0.3s ease;
+    margin-bottom: 10px; 
+}
+
+.card-cover:hover {
+    transform: scale(1.05); 
+    z-index: 2; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.474); 
+}
+
   
   .background-image {
     position: absolute;
@@ -11,11 +20,29 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: brightness(40%) contrast(120%);
+    filter: brightness(40%) contrast(110%);
   }
   
   .container-fluid.custom {
     position: relative;
     z-index: 1;
+    margin-top: 65px;
+    margin-bottom: 65px;
+    padding: 10px;
   }
+  th, td {
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+}
+.buttons {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start;
+  }
+  
+  .buttons button {
+    font-size: 0.8rem;
+    margin-right: 1rem; 
+  }
+  
   

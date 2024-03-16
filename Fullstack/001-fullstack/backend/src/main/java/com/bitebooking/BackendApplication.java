@@ -22,11 +22,7 @@ public class BackendApplication {
 		BookingRepository repoBooking = context.getBean(BookingRepository.class);
 		MenuRepository menuRepo = context.getBean(MenuRepository.class);
 		RestaurantRepository restRepo = context.getBean(RestaurantRepository.class);
-
-		restRepo.deleteAll();
-		repoBooking.deleteAll();
-		menuRepo.deleteAll();
-
+		
 
 		Menu menu1 = new Menu(null, "Omakase santoryu", "Japones", true);
 		Menu menu2 = new Menu(null, "Isakaya Fest", "Japones", true);

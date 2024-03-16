@@ -1,8 +1,205 @@
 <h1 class="mt-5 mb-5"></h1>
+@if (showDeleteBookingMessage) {
+
+    <ngb-alert type="success" [dismissible]="false">Reserva eliminada correctamente</ngb-alert>
+}
 
 @if (booking)
 {
-    <p>{{booking.id}} {{booking.title}} {{booking.numTable}} </p>
-
-    <button class="btn btn-success" [routerLink]="['/bookings', booking.id, 'update']">Editar Reserva</button>
-}
+    <div class="container">
+        <div class="row">
+    
+            <div class="col-lg-4 col-md-4 col-sm-12 mt-5">
+                <div class="container mt-5 mb-5">
+                    <div class="row card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                        <img [src]="booking.imgUrl" alt="">
+                    </div>
+                    
+                </div>
+           </div>
+    
+    
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <!--Icon grid-->
+                <div class="container px-4 py-5" id="icon-grid">
+                    <h2 class="pb-2 border-bottom">Reserva: {{booking.id}}</h2>
+    
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
+    
+                        <div class="col d-flex align-items-start">
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Reserva</h3>
+                                <p>{{booking.title}}</p>
+                            </div>
+                        </div>
+    
+                        <div class="col d-flex align-items-start">
+                         
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Precio</h3>
+                                <p>{{booking.numTable}} $</p>
+                            </div>
+                        </div>
+    
+                        <div class="col d-flex align-items-start">
+                           
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Disponibilidad</h3>
+                                @if (booking.status) {
+                                <span class="badge text-bg-success">Sí</span>
+                                } @else{
+                                <span class="badge text-bg-danger">No</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                           
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Menú</h3>
+                                <br>
+                                <a class="badge text-bg-secondary text-decoration-none"
+                                    [routerLink]="['/menus', booking.menu.id, 'detail']">
+                                    {{booking.menu.title}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                           
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Terraza</h3>
+                                <div>
+    
+                                    @if (booking.status) {
+                                    <span class="badge text-bg-success">Sí</span>
+                                    } @else{
+                                    <span class="badge text-bg-danger">No</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                           
+                            <div class="col d-flex align-items-start">
+                                <i class="bi bi-percent flex-shrink-0 me-3 fs-2"></i>
+                                <div>
+    
+                                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Descuento</h3>
+                                    <p>{{booking.numTable}} %</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Numero de mesa</h3>
+                                <p>{{booking.numTable}}</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Precio total</h3>
+                                <p>$ </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-outline-light" [routerLink]="['/bookings', booking.id, 'detail']">Ver
+                        Reserva</button>
+    
+                    <button class="btn btn-outline-success ms-2" [routerLink]="['/bookings', booking.id, 'update']">Editar
+                        Reserva</button>
+    
+                        <button class="btn btn-outline-danger ms-2"  (click)="delete(booking)" >Borrar Reserva</button>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+} 
+    
+    
+    <div class="container mb-5">
+        <div class="row">
+          <div class="col">
+            <!---Acordeon NgBootstrap-->
+      
+            <h2 class="mt-3 mb-3 text-center">Preguntas Frecuentes</h2>
+            <div ngbAccordion #accordion="ngbAccordion">
+              <div ngbAccordionItem="first">
+                <h2 ngbAccordionHeader>
+                  <button ngbAccordionButton>Tarifas de reseva.</button>
+                </h2>
+                <div ngbAccordionCollapse>
+                  <div ngbAccordionBody>
+                    <ng-template>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                      moon
+                      officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                      3 wolf
+                      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                      Nihil anim
+                      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                      excepteur
+                      butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                      probably
+                      haven't heard of them accusamus labore sustainable VHS.
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div ngbAccordionItem="second">
+                <h2 ngbAccordionHeader>
+                  <button ngbAccordionButton>Politicas de cancelación.</button>
+                </h2>
+                <div ngbAccordionCollapse>
+                  <div ngbAccordionBody>
+                    <ng-template>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                      moon
+                      officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                      3 wolf
+                      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                      Nihil anim
+                      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                      excepteur
+                      butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                      probably
+                      haven't heard of them accusamus labore sustainable VHS.
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div ngbAccordionItem="three">
+                <h2 ngbAccordionHeader>
+                  <button ngbAccordionButton>Consideraciones adicionales.</button>
+                </h2>
+                <div ngbAccordionCollapse>
+                  <div ngbAccordionBody>
+                    <ng-template>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                      moon
+                      officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                      3 wolf
+                      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                      Nihil anim
+                      keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                      excepteur
+                      butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                      probably
+                      haven't heard of them accusamus labore sustainable VHS.
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <hr />
+      
+      
+            <button class="btn btn-sm btn-outline-dark me-2" (click)="accordion.expandAll()">Abrir todos</button>
+            <button class="btn btn-sm btn-outline-dark me-2" (click)="accordion.collapseAll()">Cerrar todos</button>
+          </div>
+        </div>
+      </div> 
