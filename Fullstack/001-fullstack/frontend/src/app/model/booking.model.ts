@@ -8,6 +8,7 @@ export interface Booking {
     status: boolean;
     numTable: number;
     createDate: Date;
+    imgUrl: String;
     menu: Menu,
     restaurant: Restaurant
 }

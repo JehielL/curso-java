@@ -19,13 +19,14 @@ public class BackendApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext context = SpringApplication.run(BackendApplication.class, args);
-		BookingRepository repo = context.getBean(BookingRepository.class);
+		BookingRepository repoBooking = context.getBean(BookingRepository.class);
 		MenuRepository menuRepo = context.getBean(MenuRepository.class);
 		RestaurantRepository restRepo = context.getBean(RestaurantRepository.class);
 
-		repo.deleteAll();
-		menuRepo.deleteAll();
 		restRepo.deleteAll();
+		repoBooking.deleteAll();
+		menuRepo.deleteAll();
+
 
 		Menu menu1 = new Menu(null, "Omakase santoryu", "Japones", true);
 		Menu menu2 = new Menu(null, "Isakaya Fest", "Japones", true);
@@ -44,9 +45,9 @@ public class BackendApplication {
 
 
 
-		repo.save(new Booking(null, "Reserva Maria Laura Asuaje",true, 20.0, LocalDate.now(), menu1, restaurant1));
-		repo.save(new Booking(null, "Reserva Jehiel Linarez",false, 20.0,LocalDate.now(), menu2,restaurant2));
-		repo.save(new Booking(null, "Reserva Alan Sastre",true, 20.0,LocalDate.now(), menu3,restaurant3));
+		repoBooking.save(new Booking(null, "Maria Laura Asuaje",true, 20.0, LocalDate.now(),"https://images.otstatic.com/prod/25860960/1/huge.jpg", menu1, restaurant1));
+		repoBooking.save(new Booking(null, "Jehiel Linarez",false, 20.0,LocalDate.now(),"https://media.timeout.com/images/105990663/image.jpg" , menu2,restaurant2));
+		repoBooking.save(new Booking(null, "Alan Sastre",true, 20.0,LocalDate.now(),"https://waldorfastoriamaldives.com/wp-content/uploads/2022/06/ZUMA-2_1920_ANNA_v2.jpg" , menu3,restaurant3));
 
 
 

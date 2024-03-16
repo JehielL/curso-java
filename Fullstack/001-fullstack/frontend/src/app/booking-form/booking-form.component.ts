@@ -34,7 +34,8 @@ export class BookingFormComponent implements OnInit {
     title: new FormControl<string>(''),
     status: new FormControl<boolean>(true),
     numTable: new FormControl<number>(0),
-    createDate: new FormControl<Date>(new Date()),  
+    createDate: new FormControl<Date>(new Date()),
+    imgUrl: new FormControl<String>(''),  
     menu: new FormControl(),
     restaurant: new FormControl()
   });
@@ -74,6 +75,7 @@ export class BookingFormComponent implements OnInit {
           status: bookingFromBackend.status,
           numTable: bookingFromBackend.numTable,
           createDate: bookingFromBackend.createDate,
+          imgUrl: bookingFromBackend.imgUrl,
           menu: bookingFromBackend.menu,
           restaurant: bookingFromBackend.restaurant,
       
