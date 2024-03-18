@@ -36,11 +36,6 @@ public class BackendApplication {
 
 		restRepo.saveAll(List.of(restaurant1, restaurant2, restaurant3));
 
-
-
-
-
-
 		repoBooking.save(new Booking(null, "Maria Laura Asuaje",true, 20.0, LocalDate.now(),"https://images.otstatic.com/prod/25860960/1/huge.jpg", menu1, restaurant1));
 		repoBooking.save(new Booking(null, "Jehiel Linarez",false, 20.0,LocalDate.now(),"https://media.timeout.com/images/105990663/image.jpg" , menu2,restaurant2));
 		repoBooking.save(new Booking(null, "Alan Sastre",true, 20.0,LocalDate.now(),"https://waldorfastoriamaldives.com/wp-content/uploads/2022/06/ZUMA-2_1920_ANNA_v2.jpg" , menu3,restaurant3));

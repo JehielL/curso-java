@@ -16,7 +16,7 @@ import { Restaurant } from '../model/restaurant.model';
   styleUrl: './booking-form.component.css'
 })
 export class BookingFormComponent implements OnInit {
-
+  
  /* bookingForm = this.fb.group({
     id: [0],
     title: [''],
