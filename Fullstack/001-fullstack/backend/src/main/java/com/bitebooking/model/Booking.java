@@ -24,7 +24,6 @@ public class Booking {
     private Boolean status;
     private Double numTable;
     private LocalDate createDate;
-    private String imgUrl;
     @ManyToOne
     private Menu menu;
     @ManyToOne

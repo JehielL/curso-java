@@ -1,5 +1,6 @@
 package com.bitebooking.controller;
 import com.bitebooking.model.Booking;
+import com.bitebooking.model.Restaurant;
 import com.bitebooking.repository.BookingRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,10 @@ public class BookingController {
     public Booking findById(@PathVariable Long id) {
 
         return this.repo.findById(id).orElseThrow();
+    }
+    @GetMapping("bookings/filter-by-restaurant/{id}")
+    public List<Booking> findAllByRestaurantId(@PathVariable Long id){
+        return this.repo.findAllByRestaurant_Id(id);
     }
 
     @PostMapping("bookings")

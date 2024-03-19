@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @CrossOrigin("*")
 @AllArgsConstructor
 @Slf4j
+@RestController
 public class RestaurantController {
 
     private RestaurantRepository restRepo;
@@ -22,6 +24,12 @@ public class RestaurantController {
     @GetMapping("restaurants")
     public List<Restaurant> findAll(){
         return this.restRepo.findAll();
+    }
+
+    @GetMapping("restaurants/{id}")
+    public Restaurant findById(@PathVariable Long id) {
+
+        return this.restRepo.findById(id).orElseThrow();
     }
 
 

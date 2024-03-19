@@ -1,0 +1,204 @@
+@if (restaurant) {
+<div class="px-4 py-5 mt-5 text-center">
+    <img class="d-block mx-auto mb-4 rounded-circle" [src]="restaurant.img" alt="" style="max-width: 120px;">
+    <h1 class="display-5 fw-bold text-body-emphasis">{{restaurant.title}}</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">{{restaurant.title}}</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Editar</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Borrar</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col">
+
+        <h2 class="title text-center m-5">Reservas activas</h2>
+
+        @for (booking of bookings; track booking.id ) {
+        @if (booking.status == true ) {
+        <table class="table">
+            <div class="container-fluid text-center position-relative">
+                <div class="row">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                        <div class="background-image" [style.background-image]="'url(' + booking.restaurant.img + ')'">
+                        </div>
+
+                        <div class="container-fluid custom">
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">Id</th>
+                                    <th scope="col ">Title</th>
+                                    <th scope="col">Available</th>
+                                    <th scope="col">Table</th>
+                                    <th scope="col">Fecha de reserva</th>
+                                    <th scope="col">Menú Seleccionado</th>
+                                    <th scope="col">Restaurant</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <th scope="row">{{booking.id}}</th>
+                                <td>
+                                    <h3>{{booking.title}}</h3>
+                                </td>
+                                <td>
+                                    @if (booking.status) {
+                                    <span class="badge text-bg-success">Sí</span>
+                                    } @else{
+                                    <span class="badge text-bg-danger">No</span>
+                                    }
+                                </td>
+
+                                <td>{{booking.numTable}}</td>
+                                <td>{{booking.createDate | date: 'dd/MM/yy' }}</td>
+                                <td>
+                                    <a class="badge text-bg-secondary text-decoration-none"
+                                        [routerLink]="['/menus', booking.menu.id, 'detail']">
+                                        {{booking.menu.title}}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="badge text-bg-warning text-decoration-none"
+                                        [routerLink]="['/restaurants', booking.restaurant.id, 'detail']">
+                                        {{booking.restaurant.title}}
+                                    </a>
+                                </td>
+
+                                <div class="buttons">
+                                    <button class="btn btn-outline-light"
+                                        [routerLink]="['/bookings', booking.id, 'detail']">Ver
+                                        Reserva</button>
+
+                                    <button class="btn btn-outline-success ms-2"
+                                        [routerLink]="['/bookings', booking.id, 'update']">Editar
+                                        Reserva</button>
+
+                                </div>
+
+                            </tbody>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </table>
+        }
+
+
+
+
+        } @empty {
+        <p>No hay Reservas actualmente.</p>
+        }
+
+        <h2 class="title text-center m-5">Reservas inactivas</h2>
+
+        @for (booking of bookings; track booking.id) {
+
+        @if (booking.status == false ) {
+        <table class="table">
+            <div class="container-fluid text-center position-relative">
+                <div class="row">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                        <div class="background-image" [style.background-image]="'url(' + booking.restaurant.img + ')'">
+                        </div>
+
+                        <div class="container-fluid custom">
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">Id</th>
+                                    <th scope="col ">Title</th>
+                                    <th scope="col">Available</th>
+                                    <th scope="col">Table</th>
+                                    <th scope="col">Fecha de reserva</th>
+                                    <th scope="col">Menú Seleccionado</th>
+                                    <th scope="col">Restaurant</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <th scope="row">{{booking.id}}</th>
+                                <td>
+                                    <h3>{{booking.title}}</h3>
+                                </td>
+                                <td>
+                                    @if (booking.status) {
+                                    <span class="badge text-bg-success">Sí</span>
+                                    } @else{
+                                    <span class="badge text-bg-danger">No</span>
+                                    }
+                                </td>
+
+                                <td>{{booking.numTable}}</td>
+                                <td>{{booking.createDate | date: 'dd/MM/yy' }}</td>
+                                <td>
+                                    <a class="badge text-bg-secondary text-decoration-none"
+                                        [routerLink]="['/menus', booking.menu.id, 'detail']">
+                                        {{booking.menu.title}}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="badge text-bg-warning text-decoration-none"
+                                        [routerLink]="['/restaurants', booking.restaurant.id, 'detail']">
+                                        {{booking.restaurant.title}}
+                                    </a>
+                                </td>
+
+                                <div class="buttons">
+                                    <button class="btn btn-outline-light"
+                                        [routerLink]="['/bookings', booking.id, 'detail']">Ver
+                                        Reserva</button>
+
+                                    <button class="btn btn-outline-success ms-2"
+                                        [routerLink]="['/bookings', booking.id, 'update']">Editar
+                                        Reserva</button>
+
+
+
+                                </div>
+
+                            </tbody>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </table>
+        }
+
+
+
+
+        } @empty {
+        <p>No hay Reservas actualmente.</p>
+        }
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+}

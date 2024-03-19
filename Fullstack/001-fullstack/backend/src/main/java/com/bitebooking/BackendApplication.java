@@ -30,9 +30,9 @@ public class BackendApplication {
 
 		menuRepo.saveAll(List.of(menu1, menu2, menu3));
 
-		Restaurant restaurant1 = new Restaurant(null, "Maguro", "http", true, LocalDate.now(),menu1);
-		Restaurant restaurant2 = new Restaurant(null, "Salvaje", "http", true, LocalDate.now(),menu2);
-		Restaurant restaurant3 = new Restaurant(null, "Zuma", "http", true, LocalDate.now(),menu3);
+		Restaurant restaurant1 = new Restaurant(null, "Maguro", "https://images.otstatic.com/prod/25860960/1/huge.jpg", true, LocalDate.now(),menu1);
+		Restaurant restaurant2 = new Restaurant(null, "Salvaje", "https://media.timeout.com/images/105990663/image.jpg", true, LocalDate.now(),menu2);
+		Restaurant restaurant3 = new Restaurant(null, "Zuma", "https://waldorfastoriamaldives.com/wp-content/uploads/2022/06/ZUMA-2_1920_ANNA_v2.jpg", true, LocalDate.now(),menu3);
 
 		restRepo.saveAll(List.of(restaurant1, restaurant2, restaurant3));
 
@@ -41,9 +41,9 @@ public class BackendApplication {
 
 
 
-		repoBooking.save(new Booking(null, "Maria Laura Asuaje",true, 20.0, LocalDate.now(),"https://images.otstatic.com/prod/25860960/1/huge.jpg", menu1, restaurant1));
-		repoBooking.save(new Booking(null, "Jehiel Linarez",false, 20.0,LocalDate.now(),"https://media.timeout.com/images/105990663/image.jpg" , menu2,restaurant2));
-		repoBooking.save(new Booking(null, "Alan Sastre",true, 20.0,LocalDate.now(),"https://waldorfastoriamaldives.com/wp-content/uploads/2022/06/ZUMA-2_1920_ANNA_v2.jpg" , menu3,restaurant3));
+		repoBooking.save(new Booking(null, "Maria Laura Asuaje",true, 20.0, LocalDate.now(), menu1, restaurant1));
+		repoBooking.save(new Booking(null, "Jehiel Linarez",false, 20.0,LocalDate.now(), menu2,restaurant2));
+		repoBooking.save(new Booking(null, "Alan Sastre",true, 20.0,LocalDate.now() , menu3,restaurant3));
 
 
 
