@@ -31,11 +31,16 @@ export class BookingFormComponent implements OnInit {
 
   bookingForm = new FormGroup({
     id: new FormControl<number>(0),
-    title: new FormControl<string>(''),
-    status: new FormControl<boolean>(true),
-    numTable: new FormControl<number>(0),
     createDate: new FormControl<Date>(new Date()),
-    imgUrl: new FormControl<String>(''),  
+    title: new FormControl<string>(''),
+    price: new FormControl<number>(0),
+    numUsers: new FormControl<number>(0),
+    observations: new FormControl<string>(''),
+    status: new FormControl<boolean>(true),
+    discount: new FormControl<number>(0),
+    interior: new FormControl<boolean>(true),
+    numTable: new FormControl<number>(0),
+    totalPrice: new FormControl<number>(0), 
     menu: new FormControl(),
     restaurant: new FormControl()
   });
@@ -71,11 +76,16 @@ export class BookingFormComponent implements OnInit {
         // cargar el libro obtenido en el formulario bookForm
         this.bookingForm.reset({
           id: bookingFromBackend.id,
-          title: bookingFromBackend.title,
-          status: bookingFromBackend.status,
-          numTable: bookingFromBackend.numTable,
           createDate: bookingFromBackend.createDate,
-          imgUrl: bookingFromBackend.imgUrl,
+          title: bookingFromBackend.title,
+          price: bookingFromBackend.price,
+          numUsers: bookingFromBackend.numUsers,
+          observations: bookingFromBackend.observations,
+          status: bookingFromBackend.status,
+          discount: bookingFromBackend.discount,
+          interior: bookingFromBackend.interior,
+          numTable: bookingFromBackend.numTable,
+          totalPrice: bookingFromBackend.totalPrice,
           menu: bookingFromBackend.menu,
           restaurant: bookingFromBackend.restaurant,
       

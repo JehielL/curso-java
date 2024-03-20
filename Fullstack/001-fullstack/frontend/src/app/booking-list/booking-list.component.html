@@ -29,6 +29,7 @@
                     <th scope="col">Fecha de reserva</th>
                     <th scope="col">Menú Seleccionado</th>
                     <th scope="col">Restaurant</th>
+                    <th scope="col">Interior</th>
   
                   </tr>
   
@@ -61,6 +62,13 @@
                       [routerLink]="['/restaurants', booking.restaurant.id, 'detail']">
                       {{booking.restaurant.title}}
                     </a>
+                  </td>
+                  <td>
+                    @if (booking.interior) {
+                    <span class="badge text-bg-success">Sí</span>
+                    } @else{
+                    <span class="badge text-bg-danger">No</span>
+                    }
                   </td>
   
                   <div class="buttons">

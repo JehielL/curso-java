@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -20,10 +21,16 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
+    private LocalDateTime createDate;
     private String title;
+    private Double price;
+    private Integer numUsers;
+    private String observations;
     private Boolean status;
-    private Double numTable;
-    private LocalDate createDate;
+    private Double discount;
+    private Boolean interior;
+    private Integer numTable;
+    private Double totalPrice;
     @ManyToOne
     private Menu menu;
     @ManyToOne

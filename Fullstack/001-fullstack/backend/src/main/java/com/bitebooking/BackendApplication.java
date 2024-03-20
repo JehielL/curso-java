@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootApplication
@@ -22,6 +23,10 @@ public class BackendApplication {
 		BookingRepository repoBooking = context.getBean(BookingRepository.class);
 		MenuRepository menuRepo = context.getBean(MenuRepository.class);
 		RestaurantRepository restRepo = context.getBean(RestaurantRepository.class);
+
+		repoBooking.deleteAll();
+		restRepo.deleteAll();
+		menuRepo.deleteAll();
 		
 
 		Menu menu1 = new Menu(null, "Omakase santoryu", "Japones", true);
@@ -38,13 +43,9 @@ public class BackendApplication {
 
 
 
-
-
-
-
-		repoBooking.save(new Booking(null, "Maria Laura Asuaje",true, 20.0, LocalDate.now(), menu1, restaurant1));
-		repoBooking.save(new Booking(null, "Jehiel Linarez",false, 20.0,LocalDate.now(), menu2,restaurant2));
-		repoBooking.save(new Booking(null, "Alan Sastre",true, 20.0,LocalDate.now() , menu3,restaurant3));
+		repoBooking.save(new Booking(null, LocalDateTime.now(), "Paco leon", 30.00, 2, "Sin alergias", true, 5.0, true, 4, 150.00, menu1, restaurant1));
+		repoBooking.save(new Booking(null, LocalDateTime.now(), "Lionel Messi", 90.00, 5, "Grupo Familiar", true, 10.0, true, 10, 250.00, menu2, restaurant2));
+		repoBooking.save(new Booking(null, LocalDateTime.now(), "Alberto chicote", 50.00, 3, "Despedida de soltero", true, 0.0, false, 120, 350.00, menu3, restaurant3));
 
 
 

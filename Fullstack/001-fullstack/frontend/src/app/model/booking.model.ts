@@ -4,11 +4,16 @@ import { Restaurant } from "./restaurant.model";
 export interface Booking {
 
     id: number;
-    title: string;
-    status: boolean;
-    numTable: number;
     createDate: Date;
-    imgUrl: String;
+    title: string;
+    price: number;
+    numUsers: number;
+    observations: string;
+    status: boolean;
+    discount: number;
+    interior: boolean;
+    numTable: number;
+    totalPrice: number;
     menu: Menu,
     restaurant: Restaurant
 }
