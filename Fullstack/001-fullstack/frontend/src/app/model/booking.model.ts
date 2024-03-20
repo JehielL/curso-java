@@ -15,5 +15,7 @@ export interface Booking {
     numTable: number;
     totalPrice: number;
     menu: Menu,
-    restaurant: Restaurant
+    restaurant: Restaurant,
+    isPremium: boolean,
+    extraService: string;
 }

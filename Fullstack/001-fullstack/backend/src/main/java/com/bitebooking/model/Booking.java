@@ -35,4 +35,6 @@ public class Booking {
     private Menu menu;
     @ManyToOne
     private Restaurant restaurant;
+    private Boolean isPremium;
+    private String extraService;
 }

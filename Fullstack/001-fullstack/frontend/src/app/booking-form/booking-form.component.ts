@@ -17,17 +17,6 @@ import { Restaurant } from '../model/restaurant.model';
 })
 export class BookingFormComponent implements OnInit {
   
- /* bookingForm = this.fb.group({
-    id: [0],
-    title: [''],
-    numTable: [0.0],
-    menu: this.fb.group({
-      id: [0],
-      title: [''],
-      category: [''],
-      active: [false]
-    })
-  });*/
 
   bookingForm = new FormGroup({
     id: new FormControl<number>(0),
@@ -42,17 +31,20 @@ export class BookingFormComponent implements OnInit {
     numTable: new FormControl<number>(0),
     totalPrice: new FormControl<number>(0), 
     menu: new FormControl(),
-    restaurant: new FormControl()
+    restaurant: new FormControl(),
+    isPremium: new FormControl<boolean>(false),
+    extraService: new FormControl<string>(''),
   });
 
   
-
-
-
+  vipRoom = 0; // precio salon vip.
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
   menus: Menu[] = []; // array de autores para asociar un autor al libro
   restaurants: Restaurant[] = [];
-
+  totalPrice: any;
+  extraPrice: any;
+  extraService: any;
+  
   constructor(
     private fb: FormBuilder,
     private httpClient: HttpClient,
@@ -61,6 +53,8 @@ export class BookingFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.calculatePrice();
     // cargar autores de backend para el selector de autores en el formulario
     this.httpClient.get<Menu[]>('http://localhost:8080/menus')
       .subscribe(menus => this.menus = menus);
@@ -71,6 +65,8 @@ export class BookingFormComponent implements OnInit {
       
       const id = params['id'];
       if (!id) return;
+
+
 
       this.httpClient.get<Booking>('http://localhost:8080/bookings/' + id).subscribe(bookingFromBackend => {
         // cargar el libro obtenido en el formulario bookForm
@@ -88,6 +84,9 @@ export class BookingFormComponent implements OnInit {
           totalPrice: bookingFromBackend.totalPrice,
           menu: bookingFromBackend.menu,
           restaurant: bookingFromBackend.restaurant,
+          isPremium: bookingFromBackend.isPremium,
+          extraService: bookingFromBackend.extraService,
+         
       
         });
 
@@ -96,10 +95,49 @@ export class BookingFormComponent implements OnInit {
 
       });
     });
+    
+  }
+
+  compareObjects(o1: any, o2: any): boolean{
+
+    if (o1 && o2){
+      return o1.id == o2.id;
+    }
+
+    return o1 == o2;
+  }
+  calculatePrice() {
+    let numUsers = this.bookingForm.get('numUsers')?.value;
+    let price = this.bookingForm.get('price')?.value;
+    let discount = this.bookingForm.get('discount')?.value;
+  
+  
+    // Verifica que todos los valores necesarios estén presentes
+    if (!numUsers || !price || !discount) {
+      return;
+    }
+  
+    numUsers = Number(numUsers);
+    price = Number(price);
+    discount = Number(discount);
+  
+    // Calcula el precio total sumando el precio por persona y los extras
+    const totalPrice = this.totalPrice = numUsers * price 
+
+    this.bookingForm.get('totalPrice')?.setValue(this.totalPrice);
+
+    if (this.bookingForm.get('isPremium')?.value){
+      this.vipRoom = 4.99;
+      this.totalPrice += this.vipRoom;
+    } else {
+      this.vipRoom = 0;
+    }
+
   }
 
   save() {
     const booking: Booking = this.bookingForm.value as Booking;
+
 
     if (this.isUpdate) {
       const url = 'http://localhost:8080/bookings/' + booking.id;
@@ -115,14 +153,10 @@ export class BookingFormComponent implements OnInit {
     }
   } 
 
-  compareObjects(o1: any, o2: any): boolean{
+  
+  
 
-    if (o1 && o2){
-      return o1.id == o2.id;
-    }
-
-    return o1 == o2;
-  }
+  
 
 
 }

@@ -1,8 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col mt-5">
-      <div class="card card-cover rounded-4 shadow-lg bg-dark text-white "
-        style="background-image: url('');">
+      <div class="card card-cover rounded-4 shadow-lg bg-dark text-white " style="background-image: url('');">
         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
           <h3 class="mt-2 mb-4 display-6 lh-1 fw-bold"></h3>
           <div class="container-fluid reservation-info">
@@ -45,8 +44,10 @@
           <label for="title">Titulo Reserva</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="number" class="form-control" id="price" formControlName="price" step="1">
+          <input type="number" class="form-control" id="price" formControlName="price" step="1"
+            (change)="calculatePrice()">
           <label for="price">Precio (€)</label>
+
         </div>
         <div class="form-floating mb-3">
           <input type="datetime-local" class="form-control" id="createDate" formControlName="createDate">
@@ -54,9 +55,11 @@
         </div>
 
         <div class="form-floating mb-3">
-          <input type="number" class="form-control" id="numUsers" formControlName="numUsers" step="1">
+          <input type="number" class="form-control" id="numUsers" formControlName="numUsers" step="1"
+            (change)="calculatePrice()">
           <label for="numUsers">Numero de Usuarios</label>
         </div>
+
         <div class="mb-3">
           <label for="observations" class="form-label">Observaciones de reserva</label>
           <input type="text" class="form-control" id="observations" formControlName="observations">
@@ -110,6 +113,42 @@
             Interior
           </label>
         </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="isPremium" formControlName="isPremium"
+            (change)="calculatePrice()">
+          <label class="form-check-label" for="isPremium">
+            Salon VIP
+          </label>
+        </div>
+
+
+        @if(vipRoom > 0) {
+        <li class="list-group-item mb-5 d-flex justify-content-between lh-sm mt-3 ">
+          <div>
+            <h6 class="my-0">Servicio de comedor / salon privado.</h6>
+            <small class="text-body-secondary">vip</small>
+          </div>
+          <span class="text-body-secondary" id="isPremium">{{vipRoom}} €</span>
+        </li>
+        }
+
+
+        <div class="form floating mb-3 mt-3">
+          <label for="extraService">Servicios Adicionales</label>
+          <select class="form-select" id="extraService" formControlName="extraService" >
+            <option value="Vallet Parking">Vallet Parking</option>
+            <option value="Bar incluido">Bar incluido</option>
+            <option value="Ropero">Ropero</option>
+          </select>
+          
+        </div>
+
+
+        <div class="mb-3">
+          <label for="totalPrice" class="form-label">Precio Total: {{totalPrice}}</label>
+          <input type="number" class="form-control" id="totalPrice" formControlName="totalPrice" step="1">
+        </div>
+
 
         @if (isUpdate) {
         <button class="btn btn-success" type="submit">Actualizar</button>
