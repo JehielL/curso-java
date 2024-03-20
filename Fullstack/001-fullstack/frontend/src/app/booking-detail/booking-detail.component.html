@@ -12,7 +12,7 @@
           <div class="col-md-4 col-sm-12 mt-5">
             <div class="container mt-5 mb-5">
                 <div class="row card overflow-hidden rounded-4">
-                    <img [src]="booking.imgUrl" alt="" style="width: 100%;">
+                    <img [src]="booking.restaurant.img" alt="" style="width: 100%;">
                 </div>
             </div>
         </div>
@@ -40,15 +40,22 @@
                                 <p>{{booking.numTable}} $</p>
                             </div>
                         </div>
+                        <div class="col d-flex align-items-start">
+                         
+                          <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Fecha de Reserva</h3>
+                              <p>{{booking.createDate}}</p>
+                          </div>
+                      </div>
     
                         <div class="col d-flex align-items-start">
                            
                             <div>
-                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Disponibilidad</h3>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Estatus de reserva</h3>
                                 @if (booking.status) {
-                                <span class="badge text-bg-success">Sí</span>
+                                <span class="badge text-bg-success mt-3">Activa</span>
                                 } @else{
-                                <span class="badge text-bg-danger">No</span>
+                                <span class="badge text-bg-danger mt-3">Inactiva</span>
                                 }
                             </div>
                         </div>
@@ -70,9 +77,9 @@
                                 <div>
     
                                     @if (booking.status) {
-                                    <span class="badge text-bg-success">Sí</span>
+                                    <span class="badge text-bg-success mt-3">Sí</span>
                                     } @else{
-                                    <span class="badge text-bg-danger">No</span>
+                                    <span class="badge text-bg-danger mt-3">No</span>
                                     }
                                 </div>
                             </div>

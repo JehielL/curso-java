@@ -11,7 +11,7 @@
             <p>Precio por persona: {{ bookingForm.get('price')?.value }}</p>
             <p> Numero de Clientes: {{ bookingForm.get('numUsers')?.value }}</p>
             <p>Observaciones: {{ bookingForm.get('observations')?.value }}</p>
-            <p>Status: {{ bookingForm.get('status')?.value }}</p>
+            <p>Estado de reserva: {{ bookingForm.get('status')?.value }}</p>
             <p>Descuento: {{ bookingForm.get('discount')?.value }}</p>
             <p>Numero de mesa: {{ bookingForm.get('numTable')?.value }}</p>
             <p>Interior: {{ bookingForm.get('interior')?.value }}</p>
@@ -48,11 +48,6 @@
           <input type="number" class="form-control" id="numTable" formControlName="numTable" step="1">
           <label for="numTable">Numero de mesa</label>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">
-          <label for="imgUrl">Imagen (Url)</label>
-        </div>
-
         <div class="form-floating mb-3">
           <input type="datetime-local" class="form-control" id="createDate" formControlName="createDate">
           <label for="createDate">Fecha de Reservación.</label>
