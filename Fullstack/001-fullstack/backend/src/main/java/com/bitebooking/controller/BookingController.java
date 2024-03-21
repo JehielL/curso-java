@@ -33,6 +33,10 @@ public class BookingController {
     public List<Booking> findAllByRestaurantId(@PathVariable Long id){
         return this.repo.findAllByRestaurant_Id(id);
     }
+    @GetMapping("bookings/filter-by-user/{id}")
+    public List<Booking> findAllByUserId(@PathVariable Long id){
+        return this.repo.findAllByUser_Id(id);
+    }
 
     @PostMapping("bookings")
     public Booking create(@RequestBody Booking booking) {

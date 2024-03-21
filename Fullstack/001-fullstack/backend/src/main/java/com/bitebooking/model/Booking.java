@@ -37,4 +37,7 @@ public class Booking {
     private Restaurant restaurant;
     private Boolean isPremium;
     private String extraService;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

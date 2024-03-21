@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-log-8">
+            <h1 class="my-5">Introducir datos de usuario</h1>
+
+            <form [formGroup]="userForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name">
+                    <label for="name">Nombre</label>                
+                </div>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="photo" (change)="onFileChange($event)">
+                    <button class="btn btn-outline-secondary" type="button" id="photoBtn">Button</button>
+                </div>
+
+                <button class="btn btn-outline-dark" type="submit">Guardar</button>
+            </form>
+            
+
+        </div>
+        <div class="col-log-4">
+            
+
+        </div>
+    </div>
+</div>

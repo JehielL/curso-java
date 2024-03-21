@@ -21,6 +21,7 @@ public class Menu {
     private Long id;
     private String title;
     private String category;
+    private String imgMenu;
     private Boolean active;
 }
 

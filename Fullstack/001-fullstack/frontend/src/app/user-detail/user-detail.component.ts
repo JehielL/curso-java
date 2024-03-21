@@ -20,7 +20,7 @@ export class UserDetailComponent implements OnInit {
   
   ngOnInit(): void {
     
-    this.httpClient.get<User[]>('http:localhost:8080/users')
+    this.httpClient.get<User[]>('http://localhost:8080/users')
     .subscribe(users => this.users = users);
   }
 }

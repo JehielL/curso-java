@@ -1,5 +1,6 @@
 import { Menu } from "./menu.model";
 import { Restaurant } from "./restaurant.model";
+import { User } from "./user.model";
 
 export interface Booking {
 
@@ -18,4 +19,5 @@ export interface Booking {
     restaurant: Restaurant,
     isPremium: boolean,
     extraService: string;
+    user: User;
 }
