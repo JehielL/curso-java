@@ -145,7 +145,7 @@
 
 
         <div class="mb-3">
-          <label for="totalPrice" class="form-label">Precio Total: {{totalPrice}}</label>
+          <label for="totalPrice" class="form-label">Precio Total: {{totalPrice | currency: 'EUR':'symbol': '1.2-2'}}</label>
           <input type="number" class="form-control" id="totalPrice" formControlName="totalPrice" step="1">
         </div>
 

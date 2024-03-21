@@ -3,6 +3,7 @@ import { BookingListComponent } from './booking-list/booking-list.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 export const routes: Routes = [
 
@@ -29,8 +30,15 @@ export const routes: Routes = [
         component: BookingFormComponent
         
     },
+    
     {
         path: 'restaurants/:id/detail',
         component: RestaurantDetailComponent
     }
+    ,
+    {
+        path: 'users',
+        component: UserDetailComponent
+    },
+    
 ];

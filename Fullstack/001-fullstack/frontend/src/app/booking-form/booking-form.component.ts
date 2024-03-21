@@ -6,16 +6,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Menu } from '../model/menu.model';
 import { Restaurant } from '../model/restaurant.model';
+import { CurrencyPipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule, HttpClientModule, CurrencyPipe],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css'
 })
 export class BookingFormComponent implements OnInit {
+
+  booking: Booking | undefined;
   
 
   bookingForm = new FormGroup({
@@ -51,6 +54,8 @@ export class BookingFormComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) {
   }
+
+  showFinishMessage = false;
 
   ngOnInit(): void {
 
@@ -136,6 +141,7 @@ export class BookingFormComponent implements OnInit {
   }
 
   save() {
+   
     const booking: Booking = this.bookingForm.value as Booking;
 
 
@@ -151,12 +157,11 @@ export class BookingFormComponent implements OnInit {
         this.router.navigate(['/bookings', bookFromBackend.id, 'detail']);
       });
     }
-  } 
 
-  
-  
-
-  
-
-
+    this.httpClient.post<Booking>('http://localhost:8080/bookings', booking)
+    .subscribe(booking => {
+      this.booking = booking;
+      
+  }); 
+}
 }
