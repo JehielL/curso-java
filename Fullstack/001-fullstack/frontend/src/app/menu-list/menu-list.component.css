@@ -1,7 +1,7 @@
 .card-cover {
     position: relative;
     overflow: hidden;
-    transition: transform 1.5s ease;
+    transition: transform 1s ease;
     margin-bottom: 10px; 
 }
 
@@ -10,6 +10,19 @@
     z-index: 2; 
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.474); 
 }
+.horizontal-bars {
+  width: 100%;
+  height: 2px; /* Altura de las barras */
+  background-color: black; /* Color de las barras */
+  margin-bottom: 1rem; /* Espacio entre las barras y el título */
+}
+
+/* Espacio entre las barras y el título */
+#custom-cards h2 {
+  margin-top: 1rem;
+}
+
+
 
   
 
