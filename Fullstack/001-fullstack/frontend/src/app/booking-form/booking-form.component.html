@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col mt-5 custom">
-      <div class="card card-cover rounded-4 shadow-lg bg-dark text-white " [style.background-image]="'url('+  +')'">
+      <div class="card card-cover rounded-4 shadow-lg bg-dark text-white">
         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
           <h3 class="mt-2 mb-4 display-6 lh-1 fw-bold"></h3>
           <div class="container-fluid reservation-info">
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col form-side">
 
       @if (isUpdate) {
       <h1 class="mt-5 mb-5">Actualizar reserva existente con id {{bookingForm.get('id')?.value}}</h1>
@@ -151,9 +151,11 @@
 
 
         @if (isUpdate) {
-        <button class="btn btn-success" type="submit">Actualizar</button>
+
+          
+        <button class="btn" type="submit">Actualizar</button>
         } @else {
-        <button class="btn btn-success" type="submit">Crear</button>
+        <button class="btn " type="submit">Crear</button>
         }
       </form>
     </div>

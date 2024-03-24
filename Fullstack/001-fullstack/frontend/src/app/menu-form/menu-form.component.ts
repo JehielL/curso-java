@@ -13,10 +13,12 @@ import { RouterLink } from '@angular/router';
 export class MenuFormComponent implements OnInit{
 
   menuForm = new FormGroup({
-
-    name: new FormControl<string>(''),
-    description: new FormControl<string>(''),
-    price: new FormControl<number>(0),
+    
+    
+    title: new FormControl<string>(''),
+    category: new FormControl<string>(''),
+    imgMenu: new FormControl<string>(''),
+    active: new FormControl<boolean>(true)
     
 
   });

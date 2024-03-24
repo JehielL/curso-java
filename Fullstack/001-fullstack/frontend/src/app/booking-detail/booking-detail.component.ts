@@ -1,7 +1,7 @@
   import { Component, OnInit } from '@angular/core';
   import { Booking } from '../model/booking.model';
   import { HttpClient, HttpClientModule } from '@angular/common/http';
-  import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+  import { ActivatedRoute, RouterLink } from '@angular/router';
   import { NgbAccordionModule, NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
 
@@ -10,7 +10,8 @@ import { DatePipe } from '@angular/common';
     standalone: true,
     imports: [HttpClientModule, NgbAccordionModule, RouterLink,DatePipe,NgbAlert],
     templateUrl: './booking-detail.component.html',
-    styleUrl: './booking-detail.component.css'
+    styleUrl: './booking-detail.component.css',
+    providers: [ActivatedRoute],
   })
   export class BookingDetailComponent implements OnInit {
 

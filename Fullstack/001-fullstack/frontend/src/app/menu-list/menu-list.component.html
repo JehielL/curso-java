@@ -13,16 +13,17 @@
             <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
               <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{menu.title}}</h3>
               <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                  <i class="bi bi-arrow-right"></i>
+                <li class="me-auto menu-badge">
+              
 
                   {{menu.category}}
                 </li>
   
                 <li class="d-flex align-items-center">
-                  <button class="btn btn-dark btn-sm" [routerLink]="['/menus', menu.id, 'detail']">
+                  <button class="btn " [routerLink]="['/menus', menu.id, 'detail']">
                     Ver
                     <i class="bi bi-arrow-right ms-2"></i>
+                    
                   </button>
                 </li>
               </ul>
