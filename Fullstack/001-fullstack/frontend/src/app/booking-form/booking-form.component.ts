@@ -158,10 +158,6 @@ export class BookingFormComponent implements OnInit {
       });
     }
 
-    this.httpClient.post<Booking>('http://localhost:8080/bookings', booking)
-    .subscribe(booking => {
-      this.booking = booking;
-      
-  }); 
+    
 }
 }

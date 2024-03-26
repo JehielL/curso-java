@@ -1,43 +1,40 @@
 
+
 <div class="container">
     <div class="row">
-        <div class="col-log-8">
-            <h1 class="my-5">Crear nuevo Menú</h1>
-
-            <form [formGroup]="menuForm">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="title">
-                    <label for="title">Titulo / Nombre de Menú</label>                
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="category">
-                    <label for="category">Categoria</label>                
-                </div>
-                <div class="input-group">
-                    <input type="file" class="form-control" id="photo" (change)="onFileChange($event)">
-                    <button class="btn btn-outline-secondary" type="button" id="photoBtn">Button</button>
-                </div>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" id="active" formControlName="active">
-                    <label class="form-check-label" for="active">
-                      Interior
-                    </label>
-                  </div>
-
-                <button class="btn btn-outline-dark" type="submit">Guardar</button>
-            </form>
-            
-
-        </div>
-        <div class="col-log-4">
-
-            @if (photoPreview) {
-
-                <h2 class="my-5">Previsualizacion de foto</h2>
-                <img class="img-fluid rounder" [src]="photoPreview">
-            }
-            
-
-        </div>
+      <div class="col-lg-8">
+  
+        <h1 class="my-5">Introducir datos de Menú</h1>
+  
+        <form [formGroup]="menuForm" (ngSubmit)="save()">
+  
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control"
+            id="title" formControlName="title">
+            <label for="title">Titulo del menu</label>
+          </div>
+  
+          <div class="input-group">
+            <input type="file" class="form-control" id="photo" (change)="onFileChange($event)">
+            <button class="btn btn-outline-secondary" type="button" id="photoBtn">Button</button>
+          </div>
+  
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit">Guardar</button>
+  
+        </form>
+  
+      </div>
+      <div class="col-lg-4">
+  
+        @if (photoPreview) {
+          <h2 class="my-5">Previsualización foto</h2>
+          <img class="img-fluid" [src]="photoPreview">
+        }
+        @if (!photoPreview && menu?.imgMenu) {
+          <h2 class="my-5">Previsualización foto</h2>
+          <img class="img-fluid" [src]="'http://localhost:8080/files/' + menu?.imgMenu">
+        }
+  
+      </div>
     </div>
-</div>
+  </div>
