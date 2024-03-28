@@ -1,9 +1,6 @@
 package com.bitebooking.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,8 +17,11 @@ public class Menu {
     @Id
     private Long id;
     private String title;
-    private String category;
+    private String description;
     private String imgMenu;
     private Boolean active;
+    private Boolean allergy;
+    @Enumerated(EnumType.STRING)
+    private FoodType typeOfFood;
 }
 

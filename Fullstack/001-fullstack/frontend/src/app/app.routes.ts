@@ -7,6 +7,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { MenuFormComponent } from './menu-form/menu-form.component';
+import { MenuDetailComponent } from './menu-detail/menu-detail.component';
 
 export const routes: Routes = [
 
@@ -33,6 +34,11 @@ export const routes: Routes = [
         component: BookingFormComponent
         
     },
+    {
+        path: 'menus/:id/update',
+        component: MenuFormComponent
+
+    },
     
     {
         path: 'restaurants/:id/detail',
@@ -56,4 +62,8 @@ export const routes: Routes = [
         component: MenuFormComponent
 
     },
+    {
+        path: 'menus/:id/detail',
+        component: MenuDetailComponent
+    }
 ];

@@ -1,8 +1,13 @@
+import { FoodType } from "./food-type.enum";
+
 export interface Menu {
 
     id: number;
     title: string;
-    category: string;
+    description: string;
     imgMenu: string;
-    active: boolean;
+    active: boolean; 
+    alergys: boolean;
+    typeOfFood: FoodType;
+   
 }
