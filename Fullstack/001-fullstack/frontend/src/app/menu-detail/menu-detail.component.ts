@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Menu } from '../model/menu.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgStyle } from '@angular/common';
 import { NgbAccordionModule, NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { Rating } from '../model/rating.model';
 
 @Component({
   selector: 'app-menu-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink,DatePipe, NgbAccordionModule, NgbAlert],
+  imports: [HttpClientModule, RouterLink,DatePipe, NgbAccordionModule, NgbAlert, NgStyle],
   templateUrl: './menu-detail.component.html',
   styleUrl: './menu-detail.component.css'
 })
@@ -18,6 +18,7 @@ export class MenuDetailComponent {
   menu: Menu | undefined;
 
   ratings: Rating[] = [];
+  
    
   
   showDeleteMenuMessage: boolean = false;
