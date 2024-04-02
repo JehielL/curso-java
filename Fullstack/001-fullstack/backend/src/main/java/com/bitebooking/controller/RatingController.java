@@ -29,8 +29,8 @@ public class RatingController {
         return this.ratingRepository.findById(id).orElseThrow();
     }
     @GetMapping("menus/filter-by-menu/{id}")
-    public List<Menu> findAllByMenuId(@PathVariable Long id){
-        return this.ratingRepository.findAllByMenu_Id(id);
+    public List<Rating> findAllByMenuId(@PathVariable Long id){
+        return this.ratingRepository.findAllByMenu_IdByIdDesc(id);
     }
 
 

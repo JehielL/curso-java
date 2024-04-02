@@ -24,6 +24,8 @@ public class BackendApplication {
 		RatingRepository ratingRepository = context.getBean(RatingRepository.class);
 
 		// Borra todos los datos existentes en las tablas
+		ratingRepository.deleteAll();
+
 		repoBooking.deleteAll();
 		restRepo.deleteAll();
 		menuRepo.deleteAll();
@@ -72,8 +74,8 @@ public class BackendApplication {
 		repoBooking.save(new Booking(null, LocalDateTime.now(), "Lionel Messi", 90.00, 5, "Grupo Familiar", true, 10.0, true, 10, 250.00, menu2, restaurant2, false, "Bar incluido", user1));
 		repoBooking.save(new Booking(null, LocalDateTime.now(), "Alberto chicote", 50.00, 3, "Despedida de soltero", true, 0.0, false, 120, null, menu3, restaurant3, false, "Ropero", user1));
 
-		Rating rating1 = new Rating(null, 5, "Fenomenal",user1, menu4);
-		Rating rating2 = new Rating(null, 5, "Fenomenal",user1, menu4);
+		Rating rating1 = new Rating(null, 0, "Fenomenal",user1, menu4);
+		Rating rating2 = new Rating(null, 2, "Fenomenal",user1, menu4);
 		Rating rating3 = new Rating(null, 5, "Fenomenal",user1, menu4);
 		ratingRepository.saveAll(List.of(rating1, rating2, rating3));
 	}

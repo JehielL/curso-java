@@ -10,5 +10,5 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
 
 
 
-    List<Menu> findAllByMenu_Id(Long id);
+    List<Rating> findAllByMenu_IdByIdDesc(Long id);
 }

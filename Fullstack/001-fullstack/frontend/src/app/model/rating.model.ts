@@ -6,7 +6,7 @@ export interface Rating {
     id: number;
     score: number;
     comment: string;
-    User: User;
-    Menu: Menu;
+    user?: User;
+    menu?: Menu;
 
 }
