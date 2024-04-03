@@ -30,7 +30,7 @@ public class RatingController {
     }
     @GetMapping("menus/filter-by-menu/{id}")
     public List<Rating> findAllByMenuId(@PathVariable Long id){
-        return this.ratingRepository.findAllByMenu_IdByIdDesc(id);
+        return this.ratingRepository.findByMenu_IdOrderByIdDesc(id);
     }
 
 
