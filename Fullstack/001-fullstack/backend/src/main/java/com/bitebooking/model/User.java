@@ -17,12 +17,8 @@ public class User {
     @Id
     private Long id;
     private String name;
-    private String lastName;
     private String email;
     private String password;
-    private String phone;
-    private String address;
-    private String city;
-    private String imgUser;
+
 
 }

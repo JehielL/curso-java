@@ -32,7 +32,7 @@ public class BackendApplication {
 		userRepo.deleteAll();
 
 		// Crea y guarda un usuario primero
-		User user1 = new User(null, "Gustavo", "Cerati", "gussi@soda.com", "fuerzanatural", "23232323", "Calle de las cabras", "Buenos Aires", "https://www.lanacion.com.ar/resizer/v2/3E7EBSQO4VBH5BR7BWMXHEOX2I.jpg?auth=a84def6e7c459cd940de44657d9ebdaab7e12bd41aae20b540182d11317b9ef8&width=420&height=630&quality=70&smart=true");
+		User user1 = new User(null, "", "", "");
 		userRepo.save(user1);
 
 		// Crea y guarda los menús
