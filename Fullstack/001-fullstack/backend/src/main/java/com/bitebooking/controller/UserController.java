@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -87,9 +88,12 @@ public class UserController {
         long nextWeekMillis = TimeUnit.DAYS.toMillis(7);
         Date expirationDate = new Date(issuedDate.getTime() + nextWeekMillis);
 
+
+        byte[] key = Base64.getDecoder().decode("wLd39ypA5uOeydsszUh3f6OXijomn+VVIpFlaDkF86w=");
+
         String token = Jwts.builder()
                 .subject(String.valueOf(user.getId()))
-                .signWith(Keys.hmacShaKeyFor("admin1234admin1234admin1234admin1234admin1234admin1234admin1234".getBytes()))
+                .signWith(Keys.hmacShaKeyFor(key))
                 .issuedAt(issuedDate)
                 .expiration(expirationDate)
                 .compact();
