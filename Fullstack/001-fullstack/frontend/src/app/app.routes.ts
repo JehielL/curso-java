@@ -9,6 +9,7 @@ import { MenuListComponent } from './menu-list/menu-list.component';
 import { MenuFormComponent } from './menu-form/menu-form.component';
 import { MenuDetailComponent } from './menu-detail/menu-detail.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
 
@@ -70,5 +71,9 @@ export const routes: Routes = [
     {
         path: 'user/register',
         component: RegisterComponent
+    },
+    {
+        path: 'user/login',
+        component: LoginComponent
     }
 ];

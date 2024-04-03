@@ -1,0 +1,59 @@
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+.container-fluid {
+  background-color: #f8f9fa; /* Color de fondo */
+  padding: 50px 0; /* Espaciado interno */
+}
+
+.colinput {
+  max-width: 400px; /* Ancho máximo del contenedor del formulario */
+  margin: auto; /* Centrar horizontalmente */
+}
+
+.form-signin {
+  background-color: #fff; /* Color de fondo del formulario */
+  border-radius: 10px; /* Borde redondeado */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 30px; /* Espaciado interno */
+}
+
+.form-signin h1 {
+  font-size: 24px; /* Tamaño del título */
+  margin-bottom: 30px; /* Espaciado inferior */
+}
+
+.form-floating {
+  margin-bottom: 20px; /* Espaciado inferior entre campos */
+}
+
+.form-floating input {
+  border: none; /* Eliminar borde */
+  border-bottom: 1px solid #ced4da; /* Línea inferior */
+  border-radius: 0; /* Borde inferior sin radio */
+  padding: 10px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+}
+
+.form-floating label {
+  color: #6c757d; /* Color del texto flotante */
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #007bff, #b30092); /* Degradado de izquierda a derecha */
+  border: none; /* Eliminar borde */
+  transition: background-position 0.3s ease; /* Transición suave */
+  background-size: 200% auto; /* Tamaño del degradado */
+  color: white; /* Color del texto */
+}
+
+.btn-primary:hover {
+  background-position: right center; /* Desplazar el degradado hacia la derecha al pasar el mouse */
+}
+
+
+
+.text-body-secondary {
+  color: #6c757d; /* Color del texto del pie de página */
+}
