@@ -29,7 +29,7 @@ public class BackendApplication {
 		repoBooking.deleteAll();
 		restRepo.deleteAll();
 		menuRepo.deleteAll();
-		userRepo.deleteAll();
+
 
 		// Crea y guarda un usuario primero
 		User user1 = new User(null, "", "", "");

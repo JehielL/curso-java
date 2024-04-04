@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,20 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  
+
+  title = 'frontend'
+  isLoggedin = false;
   collapsed = true;
+
+  constructor(private authService: AuthenticationService,
+    private router: Router){
+
+    this.authService.isLoggedin.subscribe(isLoggedin => this.isLoggedin = isLoggedin);
+  }
+
+  logout() {
+
+    this.authService.removeToken();
+    this.router.navigate(['user/login']);
+  }
 }
