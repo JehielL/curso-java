@@ -92,10 +92,18 @@ public class UserController {
         byte[] key = Base64.getDecoder().decode("wLd39ypA5uOeydsszUh3f6OXijomn+VVIpFlaDkF86w=");
 
         String token = Jwts.builder()
+                // id del usuario
                 .subject(String.valueOf(user.getId()))
+                // La clave secreta para firmar el token y saber que es nuestro cuando lleguen las peticiones del frontend
                 .signWith(Keys.hmacShaKeyFor(key))
+                // Fecha emisión del token
                 .issuedAt(issuedDate)
+                // Fecha de expiración del token
                 .expiration(expirationDate)
+                // información personalizada: rol, username, email...
+                .claim("role", "admin")
+                .claim("email", user.getEmail())
+                // Construye el token
                 .compact();
         return new Token(token);
 

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-      <a routerLink="/home">
+      <a routerLink="">
         <img src="https://imgbb.host/images/e6OB.png" alt="" style="max-width: 80px;">       
       </a>
       <button
@@ -48,9 +48,13 @@
               <a ngbDropdownItem routerLink="" (click)="$event.preventDefault()">Preguntas frecuentes</a>
             </div>
           </li>
+          @if (userEmail) {
+          
+            <button class="btn btn-outline-light me-2 ">  <i class="bi bi-person-circle me-2"></i>{{userEmail}}</button>
+          }
 
           @if (isLoggedin) {
-            <button routerLink="home" type="button" class="btn btn-warning" (click)="logout()" >
+            <button routerLink="" type="button" class="btn btn-warning" (click)="logout()" >
               <i class="bi bi-box-arrow-right"></i>
               Logout</button>
 
