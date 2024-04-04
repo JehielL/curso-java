@@ -12,6 +12,7 @@ export class AuthenticationService {
 
   isLoggedin = new BehaviorSubject<boolean>(this.existsToken());
   userEmail = new BehaviorSubject<string>(this.getUserEmail());
+  isAdmin = new BehaviorSubject<boolean>(this.getIsAdmin());
 
 
 
@@ -20,6 +21,7 @@ export class AuthenticationService {
     localStorage.setItem('jwt_token', token);
     this.isLoggedin.next(true);
     this.userEmail.next(this.getUserEmail());
+    this.isAdmin.next(this.getIsAdmin())
   }
 
   existsToken() {
@@ -31,6 +33,7 @@ export class AuthenticationService {
     localStorage.removeItem('jwt_token');
     this.isLoggedin.next(false);
     this.userEmail.next('');
+    this.isAdmin.next(false);
   }
 
   getUserEmail() {
@@ -38,5 +41,13 @@ export class AuthenticationService {
     if(!token) return '';
     const decodedToken = jwtDecode(token) as DecodedToken;
     return decodedToken.email;
+  }
+
+  getIsAdmin() {
+    const token = localStorage.getItem('jwt_token');
+    if(!token) return false;
+    const decodedToken = jwtDecode(token) as DecodedToken;
+    return decodedToken.role == 'admin';
+  
   }
 }

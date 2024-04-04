@@ -16,12 +16,14 @@ export class NavbarComponent {
   isLoggedin = false;
   collapsed = true;
   userEmail = '';
+  isAdmin = false;
 
   constructor(private authService: AuthenticationService,
     private router: Router){
 
     this.authService.isLoggedin.subscribe(isLoggedin => this.isLoggedin = isLoggedin);
     this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
+    this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
   }
 
   logout() {
