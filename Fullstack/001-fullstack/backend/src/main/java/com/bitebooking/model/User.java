@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+
 public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +20,6 @@ public class User {
     private String name;
     private String email;
     private String password;
-
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

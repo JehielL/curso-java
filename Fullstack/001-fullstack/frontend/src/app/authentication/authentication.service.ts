@@ -43,11 +43,10 @@ export class AuthenticationService {
     return decodedToken.email;
   }
 
-  getIsAdmin() {
+  getIsAdmin() { 
     const token = localStorage.getItem('jwt_token');
     if(!token) return false;
     const decodedToken = jwtDecode(token) as DecodedToken;
-    return decodedToken.role == 'admin';
-  
+    return decodedToken.role === 'ADMIN'; 
   }
 }

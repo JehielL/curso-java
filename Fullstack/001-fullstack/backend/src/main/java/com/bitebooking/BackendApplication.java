@@ -29,11 +29,14 @@ public class BackendApplication {
 		repoBooking.deleteAll();
 		restRepo.deleteAll();
 		menuRepo.deleteAll();
+		userRepo.deleteAll();
 
 
 		// Crea y guarda un usuario primero
-		User user1 = new User(null, "", "", "");
-		userRepo.save(user1);
+		User user1 = new User(null, "Jehiel linarez", "admin@admin.com", "admin1234", Role.ADMIN);
+		User user2 = new User(null, "maria laura asuaje", "user@user.com", "user1234", Role.USER);
+
+		userRepo.saveAll(List.of(user1, user2));
 
 		// Crea y guarda los menús
 		Menu menu1 = new Menu(null, "Omakase santoryu", "Japones","https://www.onlyyouhotels.com/content/imgsxml/galerias/panel_galeriarestauracion/1/1836.jpg", true, true, FoodType.AMERICAN_FOOD);
@@ -71,11 +74,11 @@ public class BackendApplication {
 
 		// Crea y guarda las reservas
 		repoBooking.save(new Booking(null, LocalDateTime.now(), "Paco leon", 30.00, 2, "Sin alergias", true, 5.0, true, 4, 150.00, menu1, restaurant1, false, "Vallet parking", user1));
-		repoBooking.save(new Booking(null, LocalDateTime.now(), "Lionel Messi", 90.00, 5, "Grupo Familiar", true, 10.0, true, 10, 250.00, menu2, restaurant2, false, "Bar incluido", user1));
+		repoBooking.save(new Booking(null, LocalDateTime.now(), "Lionel Messi", 90.00, 5, "Grupo Familiar", true, 10.0, true, 10, 250.00, menu2, restaurant2, false, "Bar incluido", user2));
 		repoBooking.save(new Booking(null, LocalDateTime.now(), "Alberto chicote", 50.00, 3, "Despedida de soltero", true, 0.0, false, 120, null, menu3, restaurant3, false, "Ropero", user1));
 
 		Rating rating1 = new Rating(null, 0, "Fenomenal",user1, menu4);
-		Rating rating2 = new Rating(null, 2, "Fenomenal",user1, menu4);
+		Rating rating2 = new Rating(null, 2, "Fenomenal",user2, menu4);
 		Rating rating3 = new Rating(null, 5, "Fenomenal",user1, menu4);
 		ratingRepository.saveAll(List.of(rating1, rating2, rating3));
 	}

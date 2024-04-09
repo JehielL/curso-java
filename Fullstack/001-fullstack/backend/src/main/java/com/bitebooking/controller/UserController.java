@@ -3,6 +3,7 @@ package com.bitebooking.controller;
 import com.bitebooking.dto.Login;
 import com.bitebooking.dto.Register;
 import com.bitebooking.dto.Token;
+import com.bitebooking.model.Role;
 import com.bitebooking.model.User;
 import com.bitebooking.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
@@ -16,6 +17,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+
+
 
 @CrossOrigin("*")
 @AllArgsConstructor
@@ -49,7 +52,7 @@ public class UserController {
 
         // Crear el objeto User
         // TODO cifrar la contraseña con BCrypt
-        User user = new User(null, null, register.email(), register.password());
+        User user = new User(null, null, register.email(), register.password(), Role.ADMIN);
 
         // Guardar el objeto user
         this.userRepository.save(user);
@@ -101,7 +104,7 @@ public class UserController {
                 // Fecha de expiración del token
                 .expiration(expirationDate)
                 // información personalizada: rol, username, email...
-                .claim("role", "user")
+                .claim("role", user.getRole())
                 .claim("email", user.getEmail())
                 // Construye el token
                 .compact();
