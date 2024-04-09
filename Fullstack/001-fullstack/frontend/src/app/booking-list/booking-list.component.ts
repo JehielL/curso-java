@@ -9,7 +9,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 @Component({
   selector: 'app-booking-list',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgbAlertModule, DatePipe],
+  imports: [RouterLink, NgbAlertModule, DatePipe],
   templateUrl: './booking-list.component.html',
   styleUrl: './booking-list.component.css'
 })

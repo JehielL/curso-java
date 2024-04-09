@@ -8,7 +8,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-restaurant-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, DatePipe ],
+  imports: [ RouterLink, DatePipe ],
   templateUrl: './restaurant-detail.component.html',
   styleUrl: './restaurant-detail.component.css'
 })

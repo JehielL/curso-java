@@ -6,7 +6,7 @@ import { User } from '../model/user.model';
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.css'
 })

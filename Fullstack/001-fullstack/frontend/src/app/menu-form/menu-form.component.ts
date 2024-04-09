@@ -7,7 +7,7 @@ import { Menu } from '../model/menu.model';
 @Component({
   selector: 'app-menu-form',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './menu-form.component.html',
   styleUrl: './menu-form.component.css'
 })

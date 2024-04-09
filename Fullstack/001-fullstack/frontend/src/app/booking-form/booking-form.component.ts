@@ -12,7 +12,7 @@ import { CurrencyPipe } from '@angular/common';
 @Component({
   selector: 'app-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, CurrencyPipe],
+  imports: [ReactiveFormsModule, CurrencyPipe],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css'
 })

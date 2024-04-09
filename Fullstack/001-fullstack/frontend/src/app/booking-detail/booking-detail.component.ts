@@ -8,7 +8,7 @@ import { DatePipe } from '@angular/common';
   @Component({
     selector: 'app-booking-detail',
     standalone: true,
-    imports: [HttpClientModule, NgbAccordionModule, RouterLink,DatePipe,NgbAlert],
+    imports: [ NgbAccordionModule, RouterLink,DatePipe,NgbAlert],
     templateUrl: './booking-detail.component.html',
     styleUrl: './booking-detail.component.css',
     providers: [ActivatedRoute],
