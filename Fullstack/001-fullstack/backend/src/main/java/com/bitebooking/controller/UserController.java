@@ -6,16 +6,17 @@ import com.bitebooking.dto.Token;
 import com.bitebooking.model.Role;
 import com.bitebooking.model.User;
 import com.bitebooking.repository.UserRepository;
+import com.bitebooking.security.SecurityUtils;
+import com.bitebooking.services.FileService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import lombok.AllArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Base64;
-import java.util.Date;
-import java.util.List;
-import java.util.NoSuchElementException;
+import javax.security.sasl.AuthenticationException;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -24,11 +25,12 @@ import java.util.concurrent.TimeUnit;
 @AllArgsConstructor
 @Slf4j
 @RestController
+
 public class UserController {
 
 
 
-
+    private final FileService fileService;
     private UserRepository userRepository;
 
     @GetMapping("users")
@@ -42,6 +44,10 @@ public class UserController {
         return this.userRepository.findById(id).orElseThrow();
     }
 
+    @GetMapping("users/account")
+    public User getCurrentUser(){
+        return SecurityUtils.getCurrentUser().orElseThrow();
+    }
     @PostMapping("users/register")
     public void register(@RequestBody Register register) {
 
@@ -52,7 +58,11 @@ public class UserController {
 
         // Crear el objeto User
         // TODO cifrar la contraseña con BCrypt
-        User user = new User(null, null, register.email(), register.password(), Role.ADMIN);
+        User user = User.builder()
+                .email(register.email())
+                .password(register.password())
+                .role(Role.USER)
+                .build();
 
         // Guardar el objeto user
         this.userRepository.save(user);
@@ -113,5 +123,34 @@ public class UserController {
 
     }
 
+    @PutMapping("users/account")
+    public User update(@RequestBody User user){
+        SecurityUtils.getCurrentUser().ifPresent(currentUser -> {
 
+            if (currentUser.getRole() == Role.ADMIN || Objects.equals(currentUser.getId(), user.getId())){
+
+                this.userRepository.save(user);
+            } else {
+                throw new RuntimeException("No tiene permisos necesarios, no se puede actualizar.");
+            }
+        });
+
+        return user;
+
+    }
+
+    @PostMapping("users/account/avatar")
+    public User uploadAvatar(@RequestParam(value = "photo", required = false)MultipartFile file)
+    {
+
+        User user = SecurityUtils.getCurrentUser().orElseThrow();
+        if (file != null){
+            String fileName = fileService.store(file);
+            user.setImgUser(fileName);
+            this.userRepository.save(user);
+
+            }
+        return user;
+
+    }
 }

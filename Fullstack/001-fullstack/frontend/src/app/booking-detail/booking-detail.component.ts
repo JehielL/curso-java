@@ -16,8 +16,7 @@ import { DatePipe } from '@angular/common';
   export class BookingDetailComponent implements OnInit {
 
     booking: Booking | undefined;
-    bookings: Booking[] = []; // Agrega la propiedad bookings y asegúrate de inicializarla
-  
+   
     showDeleteBookingMessage: boolean = false;
   
     constructor(
@@ -32,7 +31,7 @@ import { DatePipe } from '@angular/common';
         const url = 'http://localhost:8080/bookings/' + id;
         this.httpClient.get<Booking>(url).subscribe(b => this.booking = b);
       });
-      this.loadBookings(); // Carga las reservas al inicializar el componente
+      
     }
   
     delete(booking: Booking) {
@@ -43,10 +42,7 @@ import { DatePipe } from '@angular/common';
       });
     }
   
-    private loadBookings() {
-      const url = 'http://localhost:8080/bookings';
-      this.httpClient.get<Booking[]>(url).subscribe(bookings => this.bookings = bookings);
-    }
+  
   
     hideDeletedBookingMessage() {
       this.showDeleteBookingMessage = false;

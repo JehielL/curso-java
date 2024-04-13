@@ -33,8 +33,8 @@ public class BackendApplication {
 
 
 		// Crea y guarda un usuario primero
-		User user1 = new User(null, "Jehiel linarez", "admin@admin.com", "admin1234", Role.ADMIN);
-		User user2 = new User(null, "maria laura asuaje", "user@user.com", "user1234", Role.USER);
+		User user1 = new User(null, "Jehiel", "linarez", "admin@admin.com", "admin1234", Role.ADMIN, "");
+		User user2 = new User(null, "maria laura", "asuaje", "user@user.com", "user1234", Role.USER, "");
 
 		userRepo.saveAll(List.of(user1, user2));
 

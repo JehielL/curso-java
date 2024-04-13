@@ -31,10 +31,10 @@
           <li class="nav-item " ngbDropdown>
             <a class="nav-link bi bi-person-circle  " tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Usuario</a>
             <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
-              <a ngbDropdownItem href="#" (click)="$event.preventDefault()" routerLink="/users">Mis detalles.</a>
-              <a ngbDropdownItem href="#" (click)="$event.preventDefault()" routerLink="/menus">Gastronomia Favorita</a>
-              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Configuración</a>
-              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Cerrar sesión</a>
+              <a ngbDropdownItem  (click)="$event.preventDefault()" routerLink="/users">Mis detalles.</a>
+              <a ngbDropdownItem (click)="$event.preventDefault()" routerLink="/menus">Gastronomia Favorita</a>
+              <a ngbDropdownItem  (click)="$event.preventDefault()" routerLink="/users/account">Configuración</a>
+              <a ngbDropdownItem  (click)="$event.preventDefault()">Cerrar sesión</a>
 
             </div>
           </li>
@@ -48,7 +48,7 @@
           
           @if (userEmail) {
           
-            <button class="btn btn-outline-light me-2 ">  <i class="bi bi-person-circle me-2"></i>{{userEmail}}</button>
+            <button class="btn btn-outline-light me-2 " routerLink="/users/account">  <i class="bi bi-person-circle me-2" ></i>{{userEmail}}</button>
           }
 
           @if (isLoggedin) {

@@ -2,11 +2,14 @@ package com.bitebooking.controller;
 import com.bitebooking.model.Booking;
 import com.bitebooking.model.Restaurant;
 import com.bitebooking.repository.BookingRepository;
+import com.bitebooking.security.SecurityUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
@@ -20,7 +23,7 @@ public class BookingController {
     @GetMapping("bookings")
     public List<Booking> findAll() {
         log.info("REST request to findAll Bookings");
-
+        SecurityUtils.getCurrentUser().ifPresent(System.out::println);
         return this.repo.findAll();
     }
 
@@ -40,6 +43,8 @@ public class BookingController {
 
     @PostMapping("bookings")
     public Booking create(@RequestBody Booking booking) {
+        SecurityUtils.getCurrentUser().ifPresent(user -> booking.setUser(user));
+
         return this.repo.save(booking);
     }
 

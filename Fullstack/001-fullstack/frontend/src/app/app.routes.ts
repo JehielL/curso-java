@@ -11,6 +11,8 @@ import { MenuDetailComponent } from './menu-detail/menu-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { userRoleGuard } from './authentication/user-role.guard';
+import { AccountFormComponent } from './account-form/account-form.component';
+import { AvatarFormComponent } from './avatar-form/avatar-form.component';
 
 export const routes: Routes = [
 
@@ -79,5 +81,13 @@ export const routes: Routes = [
     {
         path: 'user/login',
         component: LoginComponent
+    },
+    {
+        path: 'users/account',
+        component: AccountFormComponent
+    },
+    {
+        path: 'users/account/avatar',
+        component: AvatarFormComponent
     }
 ];

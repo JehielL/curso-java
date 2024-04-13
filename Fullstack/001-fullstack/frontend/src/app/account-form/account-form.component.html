@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="my-5">Mi Perfil</h1>
+            <form [formGroup]="userForm" (ngSubmit)="save()">
+                
+                <button routerLink="avatar">Cambiar avatar </button>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                    <label for="name"></label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                    <label for="lastName"></label>
+                </div>
+
+                <div class="button">
+                    <button class="btn" type="submit">Actualizar</button>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

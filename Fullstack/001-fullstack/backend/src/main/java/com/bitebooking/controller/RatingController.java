@@ -5,6 +5,7 @@ import com.bitebooking.model.Menu;
 import com.bitebooking.model.Rating;
 import com.bitebooking.repository.BookingRepository;
 import com.bitebooking.repository.RatingRepository;
+import com.bitebooking.security.SecurityUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,8 @@ public class RatingController {
 
     @PostMapping("ratings")
     public Rating create(@RequestBody Rating rating) {
+
+        SecurityUtils.getCurrentUser().ifPresent(user -> rating.setUser(user));
         return this.ratingRepository.save(rating);
     }
 
