@@ -12,6 +12,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,7 +33,7 @@ public class UserController {
 
     private final FileService fileService;
     private UserRepository userRepository;
-
+    private final PasswordEncoder passwordEncoder;
     @GetMapping("users")
     public List<User> findAll(){
         return this.userRepository.findAll();
@@ -60,7 +61,7 @@ public class UserController {
         // TODO cifrar la contraseña con BCrypt
         User user = User.builder()
                 .email(register.email())
-                .password(register.password())
+                .password(passwordEncoder.encode("user1234"))
                 .role(Role.USER)
                 .build();
 
@@ -81,7 +82,8 @@ public class UserController {
 
         // Comparar contraseñas
 
-        if(!user.getPassword().equals(login.password())){
+
+        if(!passwordEncoder.matches(login.password(), user.getPassword())){
             throw new RuntimeException("Credenciales incorrectas");
         }
 

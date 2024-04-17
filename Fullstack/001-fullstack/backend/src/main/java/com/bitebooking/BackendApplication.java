@@ -5,6 +5,7 @@ import com.bitebooking.repository.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,12 +32,18 @@ public class BackendApplication {
 		menuRepo.deleteAll();
 		userRepo.deleteAll();
 
-
+		PasswordEncoder passwordEncoder = context.getBean(PasswordEncoder.class);
 		// Crea y guarda un usuario primero
-		User user1 = new User(null, "Jehiel", "linarez", "admin@admin.com", "admin1234", Role.ADMIN, "");
-		User user2 = new User(null, "maria laura", "asuaje", "user@user.com", "user1234", Role.USER, "");
+		User user1 = new User(null, "Jehiel", "linarez", "admin@admin.com", passwordEncoder.encode("admin1234"), Role.ADMIN, "");
+		User user2 = new User(null, "maria laura", "asuaje", "user@user.com", passwordEncoder.encode("admin1234"), Role.USER, "");
 
-		userRepo.saveAll(List.of(user1, user2));
+		User u1 = User.builder()
+				.email("admin@gmail.com")
+				.name("admin")
+				.password(passwordEncoder.encode("admin1234"))
+				.role(Role.ADMIN)
+				.build();
+		userRepo.saveAll(List.of(user1, user2, u1));
 
 		// Crea y guarda los menús
 		Menu menu1 = new Menu(null, "Omakase santoryu", "Japones","https://www.onlyyouhotels.com/content/imgsxml/galerias/panel_galeriarestauracion/1/1836.jpg", true, true, FoodType.AMERICAN_FOOD);

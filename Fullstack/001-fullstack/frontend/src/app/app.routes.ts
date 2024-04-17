@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { userRoleGuard } from './authentication/user-role.guard';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { AvatarFormComponent } from './avatar-form/avatar-form.component';
+import { userLoggedInGuard } from './authentication/user-logged-in.guard';
 
 export const routes: Routes = [
 
@@ -48,7 +49,8 @@ export const routes: Routes = [
     
     {
         path: 'restaurants/:id/detail',
-        component: RestaurantDetailComponent
+        component: RestaurantDetailComponent,
+        canActivate: [userLoggedInGuard]
     }
     ,
     {
@@ -71,7 +73,8 @@ export const routes: Routes = [
     },
     {
         path: 'menus/:id/detail',
-        component: MenuDetailComponent
+        component: MenuDetailComponent,
+        canActivate: [userRoleGuard]
        
     },
     {
