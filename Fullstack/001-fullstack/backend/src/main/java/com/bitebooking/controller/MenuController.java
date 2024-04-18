@@ -2,6 +2,7 @@ package com.bitebooking.controller;
 
 import com.bitebooking.model.Menu;
 import com.bitebooking.repository.MenuRepository;
+import com.bitebooking.repository.RatingRepository;
 import com.bitebooking.services.FileService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,7 @@ import java.util.List;
 public class MenuController {
 
     private FileService fileService;
+    private RatingRepository ratingRepository;
 
     private MenuRepository menuRepository;
 
@@ -46,6 +48,14 @@ public class MenuController {
         }
 
         return this.menuRepository.save(menu);
+    }
+
+    @DeleteMapping("menus/{id}")
+    public void deleteById(@PathVariable Long id){
+
+
+        this.ratingRepository.deleteByMenuId(id);
+        this.menuRepository.deleteById(id);
     }
 
 }

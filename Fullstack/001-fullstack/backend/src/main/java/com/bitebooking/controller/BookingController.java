@@ -2,6 +2,7 @@ package com.bitebooking.controller;
 import com.bitebooking.model.Booking;
 import com.bitebooking.model.Restaurant;
 import com.bitebooking.repository.BookingRepository;
+import com.bitebooking.repository.RatingRepository;
 import com.bitebooking.security.SecurityUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ import java.util.Optional;
 public class BookingController {
 
     private final BookingRepository repo;
+    private final RatingRepository ratingRepository;
 
     @GetMapping("bookings")
     public List<Booking> findAll() {
@@ -43,6 +45,9 @@ public class BookingController {
 
     @PostMapping("bookings")
     public Booking create(@RequestBody Booking booking) {
+
+
+
         SecurityUtils.getCurrentUser().ifPresent(user -> booking.setUser(user));
 
         return this.repo.save(booking);

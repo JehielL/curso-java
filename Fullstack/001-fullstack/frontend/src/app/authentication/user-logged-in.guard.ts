@@ -1,21 +1,17 @@
-import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
+import { inject } from '@angular/core';
 
-/* 
-Guard funcional que verifica si el usuario tiene el rol necesario para acceder a una ruta.
-*/
-export const userRoleGuard: CanActivateFn = (route, state) => {
+export const userLoggedInGuard: CanActivateFn = (route, state) => {
 
   const authService = inject(AuthenticationService);
   const router = inject(Router);
 
-  if (authService.getIsAdmin()){
+  if (authService.existsToken()){
     return true;
 
   } else {
     return router.navigate(['/users/login']);
     
   }
-  
 };

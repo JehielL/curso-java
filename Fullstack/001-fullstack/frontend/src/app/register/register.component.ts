@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Register } from '../model/register.dto';
+import { Register } from '../authentication/register.dto';
 
 @Component({
   selector: 'app-register',

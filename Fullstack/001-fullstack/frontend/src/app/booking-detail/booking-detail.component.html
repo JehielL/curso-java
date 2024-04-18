@@ -29,7 +29,7 @@
           <div class="col d-flex align-items-start">
             <div>
               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Reserva</h3>
-              <p>{{booking.title}}</p>
+              <p>{{booking.user}}</p>
             </div>
           </div>
 
@@ -44,7 +44,7 @@
 
             <div>
               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Fecha de Reserva</h3>
-              <p>{{booking.createDate}}</p>
+              <p>{{booking.createDate | date: 'dd/MM/yy' }} </p>
             </div>
           </div>
 

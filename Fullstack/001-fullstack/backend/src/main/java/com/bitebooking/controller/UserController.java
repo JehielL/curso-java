@@ -12,6 +12,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,30 +29,35 @@ import java.util.concurrent.TimeUnit;
 @RestController
 
 public class UserController {
-
-
-
     private final FileService fileService;
     private UserRepository userRepository;
+
     private final PasswordEncoder passwordEncoder;
-    @GetMapping("users")
+
+    @GetMapping("user")
     public List<User> findAll(){
-        return this.userRepository.findAll();
-    }
 
-    @GetMapping("users/{id}")
-    public User findById(@PathVariable Long id) {
-
-        return this.userRepository.findById(id).orElseThrow();
+        return userRepository.findAll();
     }
 
     @GetMapping("users/account")
     public User getCurrentUser(){
         return SecurityUtils.getCurrentUser().orElseThrow();
     }
-    @PostMapping("users/register")
-    public void register(@RequestBody Register register) {
 
+
+    @GetMapping("user/{id}")
+    public ResponseEntity<User> findById(@PathVariable Long id){
+        Optional<User> users = userRepository.findById(id);
+
+        if (users.isPresent()){
+            return ResponseEntity.ok(users.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PostMapping("/users/register")
+    public void register(@RequestBody Register register) {
         // Si el email está ocupado no registramos el usuario
         if (this.userRepository.existsByEmail(register.email())){
             throw new RuntimeException("Email ocupado");
@@ -61,17 +67,16 @@ public class UserController {
         // TODO cifrar la contraseña con BCrypt
         User user = User.builder()
                 .email(register.email())
-                .password(passwordEncoder.encode("user1234"))
+                .password(passwordEncoder.encode(register.password()))
                 .role(Role.USER)
                 .build();
-
         // Guardar el objeto user
         this.userRepository.save(user);
     }
 
-    @PostMapping("users/login")
+    @PostMapping("/users/login")
     public Token login(@RequestBody Login login) {
-
+        SecurityUtils.getCurrentUser().ifPresent(System.out::println);
         // Si el email no existe entonces no se hace login
         if (!this.userRepository.existsByEmail(login.email())) {
             throw new NoSuchElementException("User not found");
@@ -82,27 +87,13 @@ public class UserController {
 
         // Comparar contraseñas
 
-
         if(!passwordEncoder.matches(login.password(), user.getPassword())){
             throw new RuntimeException("Credenciales incorrectas");
         }
 
-
-        // Generar token de acceso metodo anterior deprecado
-
-        /*String token = Jwts.builder().signWith(
-                Keys.hmacShaKeyFor("admin".getBytes()), SignatureAlgorithm.ES512)
-                .setHeaderParam("typ", "JWT")
-                .setSubject(String.valueOf(user.getId()))
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + (3600 * 24 * 1000)))
-                .claim("email", user.getEmail()).claim("role", "admin")
-                .compact(); */
-
         Date issuedDate = new Date();
         long nextWeekMillis = TimeUnit.DAYS.toMillis(7);
         Date expirationDate = new Date(issuedDate.getTime() + nextWeekMillis);
-
 
         byte[] key = Base64.getDecoder().decode("wLd39ypA5uOeydsszUh3f6OXijomn+VVIpFlaDkF86w=");
 
@@ -124,7 +115,6 @@ public class UserController {
 
 
     }
-
     @PutMapping("users/account")
     public User update(@RequestBody User user){
         SecurityUtils.getCurrentUser().ifPresent(currentUser -> {
@@ -142,7 +132,7 @@ public class UserController {
     }
 
     @PostMapping("users/account/avatar")
-    public User uploadAvatar(@RequestParam(value = "photo", required = false)MultipartFile file)
+    public User uploadAvatar(@RequestParam(value = "photo", required = false) MultipartFile file)
     {
 
         User user = SecurityUtils.getCurrentUser().orElseThrow();
@@ -151,8 +141,27 @@ public class UserController {
             user.setImgUser(fileName);
             this.userRepository.save(user);
 
-            }
+        }
         return user;
 
+    }
+
+    @PutMapping("user/{id}")
+    public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user){
+        Optional<User> userOtp = userRepository.findById(id);
+
+        if (userOtp.isEmpty()){ // no existe error404 not faund
+            return ResponseEntity.notFound().build();
+        }
+
+        User usuariosFromDB = userOtp.get();
+        // faltan mas atributos
+        return ResponseEntity.ok(userRepository.save(usuariosFromDB));
+    }
+    @DeleteMapping("user/id")
+    private ResponseEntity<Void> deleteById(@PathVariable Long id){
+
+        userRepository.deleteById(id);
+        return ResponseEntity.noContent().build(); //204
     }
 }

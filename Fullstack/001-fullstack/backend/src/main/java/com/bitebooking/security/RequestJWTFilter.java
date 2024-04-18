@@ -29,11 +29,12 @@ Clase para:
  3.-verificar que el token es correcto.
  4.-Extraer el usuario del token.
  */
-@AllArgsConstructor
+
 @Component
+@AllArgsConstructor
 @Slf4j
-public class RequestJwtFilter extends OncePerRequestFilter {
- // cargamos el repositorio para comprobar si el usuario existe.
+public class RequestJWTFilter extends OncePerRequestFilter {
+    // cargamos el repositorio para comprobar si el usuario existe.
     private final UserRepository userRepository;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

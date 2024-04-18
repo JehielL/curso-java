@@ -1,8 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Login } from '../model/login.dto';
-import { Token } from '../model/token.dto';
+import { Login } from '../authentication/login.dto';
+import { Token } from '../authentication/token.dto';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { Router } from '@angular/router';
 
