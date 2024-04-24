@@ -2,16 +2,19 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Register } from '../authentication/register.dto';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule],
+  imports: [HttpClientModule, ReactiveFormsModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
 
+  successMessage = false;
+  errorMessage: string = '';
   // no necesita FormBuilder:
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -42,14 +45,20 @@ export class RegisterComponent {
       //phone: this.registerForm.get('phone')?.value ?? '',
       password: this.registerForm.get('password')?.value ?? ''
     }
-    console.log(register);
     
 
     this.httpClient.post('http://localhost:8080/users/register', register)
     .subscribe(response => {
 
-      //limpiar el formulario o redirigir a pantalla de login
-    this.registerForm.reset();
+      next: (response: any) => {
+       
+        this.registerForm.reset();
+      
+      }; error: (response: { error: any; }) => {
+        this.errorMessage = response.error.message;
+      }
+      
+    
       
     })
 

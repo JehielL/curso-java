@@ -63,6 +63,11 @@ public class UserController {
             throw new RuntimeException("Email ocupado");
         }
 
+        if (getCurrentUser().getImgUser() != null){
+            getCurrentUser().setImgUser("https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png");
+
+        }
+
         // Crear el objeto User
         // TODO cifrar la contraseña con BCrypt
         User user = User.builder()

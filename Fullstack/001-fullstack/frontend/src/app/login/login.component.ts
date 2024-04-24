@@ -19,6 +19,8 @@ export class LoginComponent {
     password: ['']
   });
 
+  errorMessage = '';
+
   constructor(private fb: FormBuilder, 
     private httpClient: HttpClient,
     private authService: AuthenticationService,
@@ -37,6 +39,12 @@ export class LoginComponent {
       this.authService.saveToken(response.token);
       this.router.navigate(['/menus']);
     });
+
+    error: (response: any) => {
+      console.log(response.error);
+      this.errorMessage = response.error.message;
+    }
+    
 
 
   }
